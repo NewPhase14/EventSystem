@@ -31,9 +31,9 @@
                   <Image url="@../icon/Locked-lockkey.png" />
                </image>
             </ImageView>
-            <TextField alignment="CENTER" maxWidth="160.0" promptText="Username" />
-            <PasswordField alignment="CENTER" maxWidth="160.0" promptText="Password" />
-            <Button mnemonicParsing="false" styleClass="login-button" text="Log In" />
+            <TextField fx:id="txfUsername" alignment="CENTER" focusTraversable="false" maxWidth="160.0" promptText="Username" />
+            <PasswordField fx:id="pwfPassword" alignment="CENTER" focusTraversable="false" maxWidth="160.0" promptText="Password" />
+            <Button mnemonicParsing="false" onAction="#loginButton" styleClass="login-button" text="Log In" />
          </children>
          <padding>
             <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
@@ -41,9 +41,9 @@
       </VBox>
    </right>
    <top>
-      <HBox alignment="TOP_RIGHT" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="600.0" styleClass="taskbar">
+      <HBox fx:id="hboxTopBar" alignment="TOP_RIGHT" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="600.0" styleClass="taskbar">
          <children>
-            <Button maxHeight="25.0" minHeight="25.0" mnemonicParsing="false" styleClass="login-button">
+            <Button maxHeight="24.0" minHeight="24.0" mnemonicParsing="false" onAction="#minimizeButton" styleClass="minimize-button">
                <graphic>
                   <ImageView fitHeight="5.0" fitWidth="12.0">
                      <image>
@@ -52,16 +52,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button maxHeight="25.0" minHeight="25.0" mnemonicParsing="false" styleClass="login-button">
-               <graphic>
-                  <ImageView fitHeight="15.0" fitWidth="12.0">
-                     <image>
-                        <Image url="@../icon/Resize-Fullscreen.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button maxHeight="25.0" minHeight="25.0" mnemonicParsing="false" styleClass="close-button">
+            <Button maxHeight="24.0" minHeight="24.0" mnemonicParsing="false" onAction="#closeButton" styleClass="close-button">
                <graphic>
                   <ImageView fitHeight="15.0" fitWidth="12.0">
                      <image>
