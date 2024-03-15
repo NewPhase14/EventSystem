@@ -1,7 +1,32 @@
 .background {
     -fx-background-color: #76fac7;
+    -fx-background-radius: 10;
+}
+
+.taskbar {
+    -fx-background-color: #34C191;
+    -fx-background-radius: 10 10 0 0;
 }
 
 .login-button {
     -fx-background-color: #34c191;
+}
+
+.close-button {
+    -fx-background-radius: 0 10 0 0;
+    -fx-background-color: #34c191;
+}
+
+.minimize-button {
+    -fx-background-color: #34c191;
+
+}
+
+.close-button:hover {
+    -fx-background-color: red;
+}
+
+.resize-button {
+    -fx-background-color: #34c191;
+
 }
