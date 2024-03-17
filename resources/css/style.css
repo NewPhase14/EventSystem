@@ -15,18 +15,28 @@
 .close-button {
     -fx-background-radius: 0 10 0 0;
     -fx-background-color: #34c191;
-}
-
-.minimize-button {
-    -fx-background-color: #34c191;
-
+    -fx-cursor: hand;
 }
 
 .close-button:hover {
     -fx-background-color: red;
+    -fx-cursor: hand;
+}
+
+.minimize-button {
+    -fx-background-color: #34c191;
+}
+
+.minimize-button:hover {
+    -fx-background-color: #b9b9b9;
+    -fx-cursor: hand;
 }
 
 .resize-button {
     -fx-background-color: #34c191;
+}
 
+.resize-button:hover {
+    -fx-background-color: #b9b9b9;
+    -fx-cursor: hand;
 }
