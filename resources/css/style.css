@@ -35,6 +35,10 @@
     -fx-font-family: 'Anta';
 }
 
+.button:hover {
+    -fx-cursor: hand;
+}
+
 .inputwindow {
     -fx-background-color: #76fac7;
     -fx-background-radius: 0 0 10 0;
@@ -59,12 +63,10 @@
 .close-button {
     -fx-background-radius: 0 10 0 0;
     -fx-background-color: #34c191;
-    -fx-cursor: hand;
 }
 
 .close-button:hover {
     -fx-background-color: red;
-    -fx-cursor: hand;
 }
 
 .minimize-button {
@@ -73,7 +75,6 @@
 
 .minimize-button:hover {
     -fx-background-color: #b9b9b9;
-    -fx-cursor: hand;
 }
 
 .resize-button {
@@ -82,7 +83,6 @@
 
 .resize-button:hover {
     -fx-background-color: #b9b9b9;
-    -fx-cursor: hand;
 }
 
 .calendar-box {
