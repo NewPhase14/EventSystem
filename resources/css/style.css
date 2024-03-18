@@ -33,23 +33,19 @@
 
 .button {
     -fx-font-family: 'Anta';
+    -fx-background-color: #34c191;
 }
 
 .button:hover {
+    -fx-background-color: #1AA777;
     -fx-cursor: hand;
 }
 
 .input-window {
     -fx-background-color: #76fac7;
     -fx-background-radius: 0 0 10 0;
-}
-
-.side-menu-button {
-    -fx-background-color: #34c191;
-}
-
-.side-menu-button:hover {
-    -fx-background-color: #1AA777;
+    -fx-border-color: black;
+    -fx-border-width: 2 0 0 2;
 }
 
 .login-button {
@@ -74,14 +70,6 @@
 }
 
 .minimize-button:hover {
-    -fx-background-color: #b9b9b9;
-}
-
-.resize-button {
-    -fx-background-color: #34c191;
-}
-
-.resize-button:hover {
     -fx-background-color: #b9b9b9;
 }
 

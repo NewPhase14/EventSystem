@@ -56,8 +56,12 @@ public class AdminController implements Initializable {
     }
 
     @FXML
-    private void openHomeWindow(ActionEvent event) {
+    private void openHomeWindow() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/fxml/HomeWindow.fxml"));
+        VBox vBox = loader.load();
 
+        borderAdmin.setCenter(vBox);
     }
 
     @FXML
