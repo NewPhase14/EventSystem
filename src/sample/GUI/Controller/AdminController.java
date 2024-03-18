@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -50,15 +51,11 @@ public class AdminController implements Initializable {
         });
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-            draggableWindow();
-    }
 
     @FXML
     private void openHomeWindow() throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/fxml/HomeWindow.fxml"));
+        loader.setLocation(getClass().getResource("/fxml/pages/HomeWindow.fxml"));
         VBox vBox = loader.load();
 
         borderAdmin.setCenter(vBox);
@@ -67,7 +64,7 @@ public class AdminController implements Initializable {
     @FXML
     private void openAddUserWindow() throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/fxml/AddUserWindow.fxml"));
+        loader.setLocation(getClass().getResource("/fxml/pages/AddUserWindow.fxml"));
         VBox vBox = loader.load();
 
         borderAdmin.setCenter(vBox);
@@ -76,7 +73,7 @@ public class AdminController implements Initializable {
     @FXML
     private void openManageUserWindow() throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/fxml/ManageUserWindow.fxml"));
+        loader.setLocation(getClass().getResource("/fxml/pages/ManageUserWindow.fxml"));
         VBox vBox = loader.load();
 
         borderAdmin.setCenter(vBox);
@@ -85,7 +82,7 @@ public class AdminController implements Initializable {
     @FXML
     private void openCalendarWindow() throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/fxml/CalendarWindow.fxml"));
+        loader.setLocation(getClass().getResource("/fxml/pages/CalendarWindow.fxml"));
         VBox vBox = loader.load();
 
         borderAdmin.setCenter(vBox);
@@ -94,4 +91,26 @@ public class AdminController implements Initializable {
     @FXML
     private void openProfileWindow() {
     }
+    @FXML
+    private void logout() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/LoginWindow.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        scene.setFill(Color.TRANSPARENT);
+        Stage stage = Main.s;
+        stage.setScene(scene);
+        stage.getIcons().add(new Image("/icon/CuteOtter.png"));
+        stage.centerOnScreen();
+        stage.show();
+    }
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+            draggableWindow();
+        try {
+            openHomeWindow();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

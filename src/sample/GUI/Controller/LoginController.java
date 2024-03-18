@@ -23,7 +23,8 @@ import java.util.ResourceBundle;
 
 
 public class LoginController implements Initializable {
-    private double mousePosX = 0, mousePosY = 0;
+    private double mousePosX = 0;
+    private double mousePosY = 0;
     @FXML
     private PasswordField pwfPassword;
     @FXML
@@ -55,7 +56,6 @@ public class LoginController implements Initializable {
             Stage stage = Main.s;
             stage.setScene(scene);
             stage.getIcons().add(new Image("/icon/CuteOtter.png"));
-            stage.setTitle("Login Screen");
             stage.centerOnScreen();
             stage.show();
         }
