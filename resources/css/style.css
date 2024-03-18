@@ -8,7 +8,7 @@
     src: url('fonts/Anta-Regular.ttf');
 }
 
-.titlebar {
+.title-bar {
     -fx-background-color: #34C191;
     -fx-background-radius: 10 10 0 0;
 }
@@ -17,7 +17,7 @@
     -fx-text-fill: #c92c2c;
 }
 
-.menubar {
+.side-menu-bar {
     -fx-background-color: #34C191;
     -fx-background-radius: 0 0 0 10;
 }
@@ -39,16 +39,16 @@
     -fx-cursor: hand;
 }
 
-.inputwindow {
+.input-window {
     -fx-background-color: #76fac7;
     -fx-background-radius: 0 0 10 0;
 }
 
-.menubutton {
+.side-menu-button {
     -fx-background-color: #34c191;
 }
 
-.menubutton:hover {
+.side-menu-button:hover {
     -fx-background-color: #1AA777;
 }
 

@@ -9,9 +9,9 @@
 
 <BorderPane fx:id="borderAdmin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="background" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GUI.Controller.AdminController">
    <left>
-      <VBox prefHeight="600.0" prefWidth="125.0" spacing="15.0" styleClass="menubar" BorderPane.alignment="CENTER_LEFT">
+      <VBox prefHeight="600.0" prefWidth="125.0" spacing="15.0" styleClass="side-menu-bar" BorderPane.alignment="CENTER_LEFT">
          <children>
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#openHomeWindow" prefWidth="125.0" styleClass="menubutton" text="Home">
+            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#openHomeWindow" prefWidth="125.0" styleClass="side-menu-button" text="Home">
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="25.0">
                      <image>
@@ -20,7 +20,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#openAddUserWindow" prefWidth="125.0" styleClass="menubutton" text="Add User">
+            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#openAddUserWindow" prefWidth="125.0" styleClass="side-menu-button" text="Add User">
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="25.0">
                      <image>
@@ -29,7 +29,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#openManageUserWindow" prefWidth="125.0" styleClass="menubutton" text="Manage User">
+            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#openManageUserWindow" prefWidth="125.0" styleClass="side-menu-button" text="Manage User">
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="25.0">
                      <image>
@@ -38,7 +38,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#openCalendarWindow" prefWidth="125.0" styleClass="menubutton" text="Calendar">
+            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#openCalendarWindow" prefWidth="125.0" styleClass="side-menu-button" text="Calendar">
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="25.0">
                      <image>
@@ -47,7 +47,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#openProfileWindow" prefWidth="125.0" styleClass="menubutton" text="Profile">
+            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#openProfileWindow" prefWidth="125.0" styleClass="side-menu-button" text="Profile">
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="25.0">
                      <image>
@@ -59,7 +59,7 @@
          </children></VBox>
    </left>
    <top>
-      <HBox fx:id="hboxTopBar" alignment="TOP_RIGHT" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="900.0" styleClass="titlebar">
+      <HBox fx:id="hboxTopBar" alignment="TOP_RIGHT" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="900.0" styleClass="title-bar">
          <Button focusTraversable="false" maxHeight="24.0" minHeight="24.0" mnemonicParsing="false" onAction="#minimizeButton" styleClass="minimize-button">
             <graphic>
                <ImageView fitHeight="5.0" fitWidth="12.0">
