@@ -8,8 +8,34 @@
     -fx-background-radius: 10 10 0 0;
 }
 
+.menubar {
+    -fx-background-color: #34C191;
+    -fx-background-radius: 0 0 0 10;
+}
+
+.window-title {
+    -fx-font-size: 20;
+}
+
+.inputwindow {
+    -fx-background-color: #76fac7;
+    -fx-background-radius: 0 0 10 0;
+}
+
+.menubutton {
+    -fx-background-color: #34c191;
+}
+
+.menubutton:hover {
+    -fx-background-color: #1AA777;
+}
+
 .login-button {
     -fx-background-color: #34c191;
+}
+
+.login-button:hover {
+    -fx-background-color: #1AA777;
 }
 
 .close-button {

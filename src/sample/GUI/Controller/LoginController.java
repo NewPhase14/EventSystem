@@ -67,8 +67,7 @@ public class LoginController implements Initializable {
         }
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    private void draggableWindow(){
         hboxTopBar.setOnMousePressed(e -> {
             mousePosX = e.getSceneX();
             mousePosY = e.getSceneY();
@@ -78,5 +77,10 @@ public class LoginController implements Initializable {
             Main.s.setX(e.getScreenX()-mousePosX);
             Main.s.setY(e.getScreenY()-mousePosY);
         });
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        draggableWindow();
     }
 }
