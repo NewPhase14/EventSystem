@@ -14,9 +14,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import sample.GUI.Main;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -30,7 +28,7 @@ public class LoginController implements Initializable {
     @FXML
     private TextField txfUsername;
     @FXML
-    private HBox hboxTopBar;
+    private HBox hBoxTopBar;
     @FXML
     private Label lblError;
 
@@ -68,12 +66,12 @@ public class LoginController implements Initializable {
     }
 
     private void draggableWindow(){
-        hboxTopBar.setOnMousePressed(e -> {
+        hBoxTopBar.setOnMousePressed(e -> {
             mousePosX = e.getSceneX();
             mousePosY = e.getSceneY();
         });
 
-        hboxTopBar.setOnMouseDragged(e -> {
+        hBoxTopBar.setOnMouseDragged(e -> {
             Main.s.setX(e.getScreenX()-mousePosX);
             Main.s.setY(e.getScreenY()-mousePosY);
         });

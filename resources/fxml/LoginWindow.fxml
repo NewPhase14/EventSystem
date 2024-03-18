@@ -29,7 +29,7 @@
          <children>
             <ImageView>
                <image>
-                  <Image url="@../icon/Locked-lockkey.png" />
+                  <Image url="@../icon/Locked-lock.png" />
                </image>
             </ImageView>
             <Label fx:id="lblError" styleClass="error-message" />
@@ -43,7 +43,7 @@
       </VBox>
    </right>
    <top>
-      <HBox fx:id="hboxTopBar" alignment="TOP_RIGHT" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="600.0" styleClass="title-bar">
+      <HBox fx:id="hBoxTopBar" alignment="TOP_RIGHT" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="600.0" styleClass="title-bar">
          <children>
             <Button focusTraversable="false" maxHeight="24.0" minHeight="24.0" mnemonicParsing="false" onAction="#minimizeButton" styleClass="minimize-button">
                <graphic>

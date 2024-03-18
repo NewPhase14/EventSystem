@@ -23,7 +23,7 @@ public class AdminController implements Initializable {
     private double mousePosX = 0;
     private double mousePosY = 0;
     @FXML
-    private HBox hboxTopBar;
+    private HBox hBoxTopBar;
     @FXML
     private BorderPane borderAdmin;
 
@@ -40,12 +40,12 @@ public class AdminController implements Initializable {
     }
 
     private void draggableWindow() {
-        hboxTopBar.setOnMousePressed(e -> {
+        hBoxTopBar.setOnMousePressed(e -> {
             mousePosX = e.getSceneX();
             mousePosY = e.getSceneY();
         });
 
-        hboxTopBar.setOnMouseDragged(e -> {
+        hBoxTopBar.setOnMouseDragged(e -> {
             Main.s.setX(e.getScreenX()-mousePosX);
             Main.s.setY(e.getScreenY()-mousePosY);
         });

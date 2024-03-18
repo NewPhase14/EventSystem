@@ -45,7 +45,7 @@
             </TextField>
             <HBox alignment="CENTER" prefHeight="25.0" prefWidth="150.0">
                <children>
-                  <Button mnemonicParsing="false" styleClass="side-menu-button" text="Add User" />
+                  <Button mnemonicParsing="false" text="Add User" />
                </children>
             </HBox>
          </children>
