@@ -59,7 +59,7 @@
          </children></VBox>
    </left>
    <top>
-      <HBox fx:id="hboxTopBar" alignment="TOP_RIGHT" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="900.0" styleClass="taskbar">
+      <HBox fx:id="hboxTopBar" alignment="TOP_RIGHT" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="900.0" styleClass="titlebar">
          <Button focusTraversable="false" maxHeight="24.0" minHeight="24.0" mnemonicParsing="false" onAction="#minimizeButton" styleClass="minimize-button">
             <graphic>
                <ImageView fitHeight="5.0" fitWidth="12.0">

@@ -3,9 +3,18 @@
     -fx-background-radius: 10;
 }
 
-.taskbar {
+@font-face {
+    -fx-font-family: 'Anta';
+    src: url('fonts/Anta-Regular.ttf');
+}
+
+.titlebar {
     -fx-background-color: #34C191;
     -fx-background-radius: 10 10 0 0;
+}
+
+.error-message {
+    -fx-text-fill: #c92c2c;
 }
 
 .menubar {
@@ -14,7 +23,16 @@
 }
 
 .window-title {
+    -fx-font-family: 'Anta';
     -fx-font-size: 20;
+}
+
+.label {
+    -fx-font-family: 'Anta';
+}
+
+.button {
+    -fx-font-family: 'Anta';
 }
 
 .inputwindow {
@@ -65,4 +83,10 @@
 .resize-button:hover {
     -fx-background-color: #b9b9b9;
     -fx-cursor: hand;
+}
+
+.calendar-box {
+    -fx-background-color: white;
+    -fx-border-color: black;
+    -fx-border-width: 2;
 }

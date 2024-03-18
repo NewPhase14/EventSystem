@@ -32,7 +32,7 @@
                   <Image url="@../icon/Locked-lockkey.png" />
                </image>
             </ImageView>
-            <Label fx:id="lblError" textFill="#c92c2c" />
+            <Label fx:id="lblError" styleClass="error-message" />
             <TextField fx:id="txfUsername" alignment="CENTER" maxWidth="160.0" promptText="Username" />
             <PasswordField fx:id="pwfPassword" alignment="CENTER" maxWidth="160.0" promptText="Password" />
             <Button mnemonicParsing="false" onAction="#loginButton" styleClass="login-button" text="Log In" />
@@ -43,7 +43,7 @@
       </VBox>
    </right>
    <top>
-      <HBox fx:id="hboxTopBar" alignment="TOP_RIGHT" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="600.0" styleClass="taskbar">
+      <HBox fx:id="hboxTopBar" alignment="TOP_RIGHT" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="600.0" styleClass="titlebar">
          <children>
             <Button focusTraversable="false" maxHeight="24.0" minHeight="24.0" mnemonicParsing="false" onAction="#minimizeButton" styleClass="minimize-button">
                <graphic>

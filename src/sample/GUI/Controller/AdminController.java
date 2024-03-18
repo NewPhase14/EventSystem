@@ -79,10 +79,15 @@ public class AdminController implements Initializable {
     }
 
     @FXML
-    private void openCalendarWindow(ActionEvent event) {
+    private void openCalendarWindow() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/fxml/CalendarWindow.fxml"));
+        VBox vBox = loader.load();
+
+        borderAdmin.setCenter(vBox);
     }
 
     @FXML
-    private void openProfileWindow(ActionEvent event) {
+    private void openProfileWindow() {
     }
 }

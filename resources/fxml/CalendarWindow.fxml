@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="775.0" spacing="10.0" styleClass="inputwindow" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GUI.Controller.CalendarController">
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+   <children>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+         <children>
+            <Button mnemonicParsing="false" text="&lt;" />
+            <Label styleClass="window-title" text="This" />
+            <Label fx:id="lblMonth" styleClass="window-title" text="March" />
+            <Button mnemonicParsing="false" text="&gt;" />
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </HBox>
+      <Pane prefHeight="506.0" prefWidth="736.0" styleClass="calendar-box">
+         <children>
+            <HBox alignment="BOTTOM_CENTER" prefHeight="25.0" prefWidth="734.0" spacing="55.0">
+               <children>
+                  <Label text="Monday" />
+                  <Label text="Tuesday" />
+                  <Label text="Wednesday" />
+                  <Label text="Thursday" />
+                  <Label text="Friday" />
+                  <Label text="Saturday" />
+                  <Label text="Sunday" />
+               </children>
+            </HBox>
+            <FlowPane fx:id="fpCalendar" layoutY="23.0" prefHeight="441.0" prefWidth="733.0" />
+         </children>
+      </Pane>
+   </children>
+</VBox>
