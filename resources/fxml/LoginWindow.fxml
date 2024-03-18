@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -11,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GUI.Controller.LoginController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GUI.Controller.LoginController">
    <left>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -31,8 +32,9 @@
                   <Image url="@../icon/Locked-lockkey.png" />
                </image>
             </ImageView>
-            <TextField fx:id="txfUsername" alignment="CENTER" focusTraversable="false" maxWidth="160.0" promptText="Username" />
-            <PasswordField fx:id="pwfPassword" alignment="CENTER" focusTraversable="false" maxWidth="160.0" promptText="Password" />
+            <Label fx:id="lblError" textFill="#c92c2c" />
+            <TextField fx:id="txfUsername" alignment="CENTER" maxWidth="160.0" promptText="Username" />
+            <PasswordField fx:id="pwfPassword" alignment="CENTER" maxWidth="160.0" promptText="Password" />
             <Button mnemonicParsing="false" onAction="#loginButton" styleClass="login-button" text="Log In" />
          </children>
          <padding>
@@ -43,7 +45,7 @@
    <top>
       <HBox fx:id="hboxTopBar" alignment="TOP_RIGHT" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="600.0" styleClass="taskbar">
          <children>
-            <Button maxHeight="24.0" minHeight="24.0" mnemonicParsing="false" onAction="#minimizeButton" styleClass="minimize-button">
+            <Button focusTraversable="false" maxHeight="24.0" minHeight="24.0" mnemonicParsing="false" onAction="#minimizeButton" styleClass="minimize-button">
                <graphic>
                   <ImageView fitHeight="5.0" fitWidth="12.0">
                      <image>
@@ -52,7 +54,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button maxHeight="24.0" minHeight="24.0" mnemonicParsing="false" onAction="#closeButton" styleClass="close-button">
+            <Button focusTraversable="false" maxHeight="24.0" minHeight="24.0" mnemonicParsing="false" onAction="#closeButton" styleClass="close-button">
                <graphic>
                   <ImageView fitHeight="15.0" fitWidth="12.0">
                      <image>
