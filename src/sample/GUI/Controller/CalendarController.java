@@ -19,7 +19,9 @@ public class CalendarController implements Initializable {
 
     private ZonedDateTime dateFocus;
     private ZonedDateTime today;
-    
+
+    @FXML
+    private Label lblYear;
     @FXML
     private Label lblMonth;
     @FXML
@@ -33,6 +35,7 @@ public class CalendarController implements Initializable {
     }
 
     private void drawCalendar() {
+        lblYear.setText(String.valueOf(dateFocus.getYear()));
         lblMonth.setText(String.valueOf(dateFocus.getMonth()));
 
         double calendarWidth = fpCalendar.getPrefWidth();

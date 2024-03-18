@@ -17,8 +17,8 @@
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
          <children>
             <Button mnemonicParsing="false" onAction="#OnClickLeftMonth" text="&lt;" />
-            <Label styleClass="window-title" text="This" />
-            <Label fx:id="lblMonth" styleClass="window-title" text="March" />
+            <Label fx:id="lblMonth" alignment="CENTER" prefWidth="150.0" styleClass="window-title" text="####" />
+            <Label fx:id="lblYear" alignment="CENTER" prefWidth="150.0" styleClass="window-title" text="####" />
             <Button mnemonicParsing="false" onAction="#OnClickRightMonth" text="&gt;" />
          </children>
          <VBox.margin>
