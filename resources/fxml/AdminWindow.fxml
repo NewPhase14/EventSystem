@@ -76,7 +76,7 @@
    </left>
    <top>
       <HBox fx:id="hBoxTopBar" alignment="TOP_RIGHT" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="900.0" styleClass="title-bar">
-         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="25.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@../icon/CuteOtter.png" />
             </image>
