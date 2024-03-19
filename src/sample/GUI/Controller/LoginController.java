@@ -79,6 +79,8 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        txfUsername.setText("1");
+        pwfPassword.setText("123");
         draggableWindow();
     }
 }

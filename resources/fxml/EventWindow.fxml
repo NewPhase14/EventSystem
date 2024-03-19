@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="window" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="775.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GUI.Controller.EventController">
+   <children>
+      <HBox alignment="CENTER_LEFT" prefHeight="1.0" prefWidth="775.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#returnToHomeWindow" text="&lt;">
+               <HBox.margin>
+                  <Insets left="25.0" />
+               </HBox.margin>
+            </Button>
+            <Label styleClass="window-title" text="Event Management">
+               <HBox.margin>
+                  <Insets left="247.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <VBox alignment="CENTER" prefWidth="775.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="90.0" prefWidth="200.0" spacing="225.0">
+               <children>
+                  <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="125.0">
+                     <children>
+                        <Label text="Event name:" />
+                        <TextField maxWidth="200.0" minWidth="200.0" />
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="116.0">
+                     <children>
+                        <Label text="Event Coordinator:" />
+                        <ComboBox minWidth="200.0" prefWidth="150.0" />
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="90.0" prefWidth="200.0" spacing="225.0">
+               <children>
+                  <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="125.0">
+                     <children>
+                        <Label text="Available tickets:" />
+                        <TextField maxWidth="200.0" minWidth="200.0" />
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="116.0">
+                     <children>
+                        <Label text="Event location:" />
+                        <TextField maxWidth="200.0" minWidth="200.0" />
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="90.0" prefWidth="200.0" spacing="225.0">
+               <children>
+                  <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="125.0">
+                     <children>
+                        <Label text="Event start at:" />
+                        <DatePicker minWidth="200.0" />
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="116.0">
+                     <children>
+                        <Label text="Event end at:" />
+                        <DatePicker minWidth="200.0" />
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="90.0" prefWidth="200.0" spacing="225.0">
+               <children>
+                  <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="125.0">
+                     <children>
+                        <Label text="Event start time:" />
+                        <TextField maxWidth="200.0" minWidth="200.0" />
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="116.0">
+                     <children>
+                        <Label text="Event end time:" />
+                        <TextField maxWidth="200.0" minWidth="200.0" />
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="90.0" prefWidth="200.0" spacing="225.0">
+               <children>
+                  <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="125.0">
+                     <children>
+                        <Label text="Event description" />
+                        <TextArea minWidth="625.0" prefHeight="200.0" prefWidth="200.0" />
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </HBox>
+            <Button mnemonicParsing="false" text="Create">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</VBox>
