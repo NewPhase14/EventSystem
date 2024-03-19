@@ -59,7 +59,7 @@ public class CalendarController implements Initializable {
                 StackPane stackPane = new StackPane();
 
                 Rectangle rectangle = new Rectangle();
-                rectangle.setFill(Color.GRAY);
+                rectangle.setFill(Color.rgb(75,75,75));
                 rectangle.setStroke(Color.BLACK);
                 rectangle.setStrokeWidth(strokeWidth);
                 double rectangleWidth = (calendarWidth / 7) - strokeWidth - spacingHeight;
@@ -81,7 +81,7 @@ public class CalendarController implements Initializable {
                         stackPane.getChildren().add(date);
                     }
                     if (today.getYear() == dateFocus.getYear() && today.getMonth() == dateFocus.getMonth() && today.getDayOfMonth() == currentDate) {
-                        rectangle.setFill(Color.rgb(26, 167, 119));
+                        rectangle.setFill(Color.rgb(240,186,64));
                     }
                 }
                 fpCalendar.getChildren().add(stackPane);

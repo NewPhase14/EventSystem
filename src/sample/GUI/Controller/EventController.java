@@ -16,6 +16,6 @@ public class EventController {
 
     @FXML
     private void returnToHomeWindow() throws IOException {
-        
+
     }
 }

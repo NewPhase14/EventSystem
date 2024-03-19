@@ -1,5 +1,5 @@
 .background {
-    -fx-background-color: #76fac7;
+    -fx-background-color: rgb(240,186,64);
     -fx-background-radius: 10;
 }
 
@@ -9,7 +9,7 @@
 }
 
 .title-bar {
-    -fx-background-color: #34C191;
+    -fx-background-color: #4B4B4B;
     -fx-background-radius: 10 10 0 0;
 }
 
@@ -18,7 +18,7 @@
 }
 
 .side-menu-bar {
-    -fx-background-color: #34C191;
+    -fx-background-color: #4B4B4B;
     -fx-background-radius: 0 0 0 10;
 }
 
@@ -33,32 +33,33 @@
 
 .button {
     -fx-font-family: 'Anta';
-    -fx-background-color: #34c191;
+    -fx-background-color: #4B4B4B;
+    -fx-text-fill: white;
 }
 
 .button:hover {
-    -fx-background-color: #1AA777;
+    -fx-background-color: rgb(240,186,64);
     -fx-cursor: hand;
 }
 
 .input-window {
-    -fx-background-color: #76fac7;
+    -fx-background-color: #D9D9D9;
     -fx-background-radius: 0 0 10 0;
-    -fx-border-color: black;
-    -fx-border-width: 1 0 0 1;
+    -fx-border-color: rgb(18,152,215);
+    -fx-border-width: 3 0 0 3;
 }
 
 .login-button {
-    -fx-background-color: #34c191;
+    -fx-background-color: #4B4B4B;
 }
 
 .login-button:hover {
-    -fx-background-color: #1AA777;
+    -fx-background-color: #D9D9D9;
 }
 
 .close-button {
     -fx-background-radius: 0 10 0 0;
-    -fx-background-color: #34c191;
+    -fx-background-color: #4B4B4B;
 }
 
 .close-button:hover {
@@ -66,7 +67,7 @@
 }
 
 .minimize-button {
-    -fx-background-color: #34c191;
+    -fx-background-color: #4B4B4B;
 }
 
 .minimize-button:hover {
