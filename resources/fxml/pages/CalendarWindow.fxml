@@ -27,17 +27,13 @@
       </HBox>
       <Pane prefHeight="506.0" prefWidth="736.0" styleClass="calendar-box">
          <children>
-            <HBox alignment="BOTTOM_CENTER" prefHeight="25.0" prefWidth="734.0" spacing="55.0">
-               <children>
-                  <Label text="Monday" />
-                  <Label text="Tuesday" />
-                  <Label text="Wednesday" />
-                  <Label text="Thursday" />
-                  <Label text="Friday" />
-                  <Label text="Saturday" />
-                  <Label text="Sunday" />
-               </children>
-            </HBox>
+            <Label layoutX="38.0" layoutY="9.0" text="Monday" />
+            <Label layoutX="138.0" layoutY="9.0" text="Tuesday" />
+            <Label layoutX="232.0" layoutY="9.0" text="Wednesday" />
+            <Label layoutX="341.0" layoutY="9.0" text="Thursday" />
+            <Label layoutX="449.0" layoutY="9.0" text="Friday" />
+            <Label layoutX="544.0" layoutY="9.0" text="Saturday" />
+            <Label layoutX="653.0" layoutY="9.0" text="Sunday" />
             <FlowPane fx:id="fpCalendar" hgap="10.0" layoutX="15.0" layoutY="29.0" prefHeight="425.0" prefWidth="710.0" vgap="5.0" />
          </children>
          <padding>
