@@ -6,6 +6,7 @@ import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.Properties;
 
 public class DatabaseConnector {
@@ -29,5 +30,15 @@ public class DatabaseConnector {
 
     public Connection getConnection() throws SQLServerException {
         return dataSource.getConnection();
+    }
+
+    public static void main(String[] args) throws SQLException, IOException {
+        DatabaseConnector databaseConnector = new DatabaseConnector();
+
+        try (Connection connection = databaseConnector.getConnection()) {
+
+            System.out.println("Is it open? " + !connection.isClosed());
+
+        }
     }
 }
