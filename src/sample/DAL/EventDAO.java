@@ -5,8 +5,8 @@ import sample.BE.Event;
 import javax.xml.transform.Result;
 import java.io.IOException;
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class EventDAO {
@@ -30,8 +30,8 @@ public class EventDAO {
                 String name = rs.getString("name");
                 int tickets = rs.getInt("tickets");
                 String location = rs.getString("location");
-                Date startDate = rs.getDate("startDate");
-                Date endDate = rs.getDate("endDate");
+                LocalDate startDate = rs.getDate("startDate").toLocalDate();
+                LocalDate endDate = rs.getDate("endDate").toLocalDate();
                 String startTime = String.valueOf(rs.getTime("startTime"));
                 String endTime = String.valueOf(rs.getTime("endTime"));
                 String description = rs.getString("description");
@@ -55,8 +55,8 @@ public class EventDAO {
         stmt.setString(1,event.getName());
         stmt.setInt(2,event.getTickets());
         stmt.setString(3,event.getLocation());
-        stmt.setDate(4, (java.sql.Date) event.getStartDate());
-        stmt.setDate(5, (java.sql.Date) event.getEndDate());
+        stmt.setDate(4, Date.valueOf(event.getStartDate()));
+        stmt.setDate(5, Date.valueOf(event.getEndDate()));
         stmt.setTime(6, Time.valueOf(event.getStartTime()));
         stmt.setTime(7, Time.valueOf(event.getEndTime()));
         stmt.setString(8,event.getDescription());
@@ -87,8 +87,8 @@ public class EventDAO {
             stmt.setString(1,event.getName());
             stmt.setInt(2,event.getTickets());
             stmt.setString(3,event.getLocation());
-            stmt.setDate(4, (java.sql.Date) event.getStartDate());
-            stmt.setDate(5, (java.sql.Date) event.getEndDate());
+            stmt.setDate(4, Date.valueOf(event.getStartDate()));
+            stmt.setDate(5, Date.valueOf(event.getEndDate()));
             stmt.setTime(6, Time.valueOf(event.getStartTime()));
             stmt.setTime(7, Time.valueOf(event.getEndTime()));
             stmt.setString(8,event.getDescription());

@@ -1,5 +1,6 @@
 package sample.GUI.Controller.Pages;
 
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -12,9 +13,14 @@ import java.util.ResourceBundle;
 
 public class StatisticsWindowController implements Initializable {
 
-    public TextField txtSearchfield, txtEventsCreated, txtTicketsSold, txtEventsManaged;
-    public ListView<EventCoordinator> lstEventcoordinators;
-    public Label lblEventcoordinatorName;
+    @FXML
+    private TextField txtSearchfield, txtEventsCreated, txtTicketsSold, txtEventsManaged;
+
+    @FXML
+    private ListView<EventCoordinator> lstEventcoordinators;
+
+    @FXML
+    private Label lblEventcoordinatorName;
 
     private EventCoordinatorModel eventCoordinatorModel;
 
