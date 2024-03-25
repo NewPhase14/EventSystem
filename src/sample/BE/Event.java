@@ -8,8 +8,7 @@ public class Event {
 
     private int id;
     private String name;
-
-    //private List<Eventkoordinator> eventkoordinator;
+    private List<EventCoordinator> eventcoordinator;
     private int tickets;
     private String location;
     private Date startDate;

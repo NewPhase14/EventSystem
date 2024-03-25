@@ -13,6 +13,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import sample.GUI.Controller.Pages.StatisticsWindowController;
 import sample.GUI.Main;
 
 import java.io.IOException;
@@ -111,4 +112,13 @@ public class AdminController implements Initializable {
             throw new RuntimeException(e);
         }
     }
+
+    public void openStatisticsWindow(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/fxml/pages/StatisticsWindow.fxml"));
+        VBox vBox = loader.load();
+
+        borderAdmin.setCenter(vBox);
+    }
+
 }

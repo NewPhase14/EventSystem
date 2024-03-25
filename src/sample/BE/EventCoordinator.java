@@ -29,10 +29,6 @@ public class EventCoordinator {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getFirstName() {
         return firstName;
     }
@@ -71,5 +67,10 @@ public class EventCoordinator {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return firstName + " " + lastName;
     }
 }
