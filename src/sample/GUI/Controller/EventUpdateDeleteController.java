@@ -20,6 +20,9 @@ import java.util.ResourceBundle;
 public class EventUpdateDeleteController implements Initializable {
 
     @FXML
+    private Label lblAlert;
+
+    @FXML
     private ListView<Event> lstEvents;
 
     @FXML
@@ -70,21 +73,49 @@ public class EventUpdateDeleteController implements Initializable {
     }
 
 
-    public void returnToHomeWindow(ActionEvent actionEvent) throws IOException {
+    public void returnToHomeWindow() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/pages/HomeWindow.fxml"));
         VBox homeWindow = loader.load();
         BorderPane adminWindow = (BorderPane) window.getScene().getRoot();
         adminWindow.setCenter(homeWindow);
     }
 
-    public void createEvent(ActionEvent actionEvent) {
+    public void createEvent() throws Exception {
+        if (!txtEventName.getText().isEmpty() && !txtAvailableTickets.getText().isEmpty() && !txtEventLocation.getText().isEmpty() && dpEventStart != null && dpEventEnd != null && !txtEventStartTime.getText().isEmpty() && !txtEventEndTime.getText().isEmpty()){
 
+            String name = txtEventName.getText();
+            int tickets = Integer.parseInt(txtAvailableTickets.getText());
+            String location = txtEventLocation.getText();
+            LocalDate startDate = dpEventStart.getValue();
+            LocalDate endDate = dpEventEnd.getValue();
+            String startTime = txtEventStartTime.getText();
+            String endTime = txtEventEndTime.getText();
+            String description = txtaEventDescription.getText();
+
+            Event event = new Event(name, tickets, location, startDate, endDate, startTime, endTime, description, 1);
+            eventModel.createEvent(event);
+        } else {
+            lblAlert.setText("Fill out all fields");
+        }
     }
 
-    public void updateEvent(ActionEvent actionEvent) {
+    public void updateEvent() throws Exception {
+        Event selectedEvent = lstEvents.getSelectionModel().getSelectedItem();
+        if (selectedEvent != null){
+            selectedEvent.setName(txtEventName.getText());
+            selectedEvent.setTickets(Integer.parseInt(txtAvailableTickets.getText()));
+            selectedEvent.setLocation(txtEventLocation.getText());
+            selectedEvent.setStartDate(dpEventStart.getValue());
+            selectedEvent.setEndDate(dpEventEnd.getValue());
+            selectedEvent.setStartTime(txtEventStartTime.getText());
+            selectedEvent.setEndTime(txtEventEndTime.getText());
+            selectedEvent.setDescription(txtaEventDescription.getText());
 
+            eventModel.updateEvent(selectedEvent);
+            lstEvents.refresh();
+        }
     }
-    public void deleteEvent(ActionEvent actionEvent) throws Exception {
+    public void deleteEvent() throws Exception {
         Event selectedEvent = lstEvents.getSelectionModel().getSelectedItem();
         if (selectedEvent != null){
             eventModel.deleteEvent(selectedEvent);

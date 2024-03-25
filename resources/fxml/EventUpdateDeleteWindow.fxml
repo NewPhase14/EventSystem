@@ -45,10 +45,13 @@
                               <Insets />
                            </HBox.margin>
                         </VBox>
-                        <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="200.0">
+                        <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="200.0">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
+                           <children>
+                              <Label fx:id="lblAlert" />
+                           </children>
                         </VBox>
                      </children>
                   </HBox>
@@ -101,7 +104,7 @@
                         <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="125.0">
                            <children>
                               <Label text="Event start time:" />
-                              <TextField fx:id="txtEventStartTime" maxWidth="200.0" minWidth="200.0" />
+                              <TextField fx:id="txtEventStartTime" maxWidth="200.0" minWidth="200.0" promptText="XX:XX:XX Format" />
                            </children>
                            <HBox.margin>
                               <Insets />
@@ -110,7 +113,7 @@
                         <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="116.0">
                            <children>
                               <Label text="Event end time:" />
-                              <TextField fx:id="txtEventEndTime" maxWidth="200.0" minWidth="200.0" />
+                              <TextField fx:id="txtEventEndTime" maxWidth="200.0" minWidth="200.0" promptText="XX:XX:XX Format" />
                            </children>
                            <HBox.margin>
                               <Insets />

@@ -9,7 +9,6 @@ public class Event {
 
     private int id;
     private String name;
-    private List<EventCoordinator> eventcoordinator;
     private int tickets;
     private String location;
     private LocalDate startDate;
@@ -17,6 +16,32 @@ public class Event {
     private String startTime;
     private String endTime;
     private String description;
+    private int eventCoordinatorId;
+
+    public Event(int id, String name, int tickets, String location, LocalDate startDate, LocalDate endDate, String startTime, String endTime, String description, int eventCoordinatorId) {
+        this.id = id;
+        this.name = name;
+        this.tickets = tickets;
+        this.location = location;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.description = description;
+        this.eventCoordinatorId = eventCoordinatorId;
+    }
+
+    public Event(String name, int tickets, String location, LocalDate startDate, LocalDate endDate, String startTime, String endTime, String description, int eventCoordinatorId) {
+        this.name = name;
+        this.tickets = tickets;
+        this.location = location;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.description = description;
+        this.eventCoordinatorId = eventCoordinatorId;
+    }
 
     public Event(int id, String name, int tickets, String location, LocalDate startDate, LocalDate endDate, String startTime, String endTime, String description) {
         this.id = id;
@@ -29,6 +54,8 @@ public class Event {
         this.endTime = endTime;
         this.description = description;
     }
+
+
 
     public int getId() {
         return id;
@@ -98,8 +125,13 @@ public class Event {
         this.description = description;
     }
 
+    public int getEventcoordinator() {
+        return eventCoordinatorId;
+    }
+
     @Override
     public String toString() {
         return  name;
     }
+
 }
