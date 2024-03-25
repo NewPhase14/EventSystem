@@ -15,49 +15,54 @@
       <Label styleClass="window-title" text="User Management" />
       <HBox alignment="CENTER" fillHeight="false" maxHeight="500.0" minHeight="500.0" prefHeight="500.0" spacing="100.0">
          <children>
-            <TableView prefHeight="480.0" prefWidth="340.0" HBox.hgrow="NEVER">
+            <TableView fx:id="tblUsers" prefHeight="480.0" prefWidth="340.0" HBox.hgrow="NEVER">
               <columns>
-                <TableColumn prefWidth="100.0" text="First name" />
-                <TableColumn prefWidth="100.0" text="Last name" />
-                  <TableColumn prefWidth="140.0" text="Email" />
+                <TableColumn fx:id="colFirstName" prefWidth="100.0" text="First name" />
+                <TableColumn fx:id="colLastName" prefWidth="100.0" text="Last name" />
+                  <TableColumn fx:id="colEmail" prefWidth="140.0" text="Email" />
               </columns>
             </TableView>
             <VBox alignment="CENTER_LEFT" prefWidth="200.0">
                <children>
                   <Label text="First name:" />
-                  <TextField maxWidth="200.0" minWidth="200.0">
+                  <TextField fx:id="txtfFirstName" maxWidth="200.0" minWidth="200.0">
                      <VBox.margin>
                         <Insets bottom="20.0" />
                      </VBox.margin>
                   </TextField>
                   <Label text="Last name:" />
-                  <TextField maxWidth="200.0" minWidth="200.0">
+                  <TextField fx:id="txtfLastName" maxWidth="200.0" minWidth="200.0">
                      <VBox.margin>
                         <Insets bottom="20.0" />
                      </VBox.margin>
                   </TextField>
                   <Label text="Username:" />
-                  <TextField maxWidth="200.0" minWidth="200.0">
+                  <TextField fx:id="txtfUsername" maxWidth="200.0" minWidth="200.0">
                      <VBox.margin>
                         <Insets bottom="20.0" />
                      </VBox.margin>
                   </TextField>
                   <Label text="Password:" />
-                  <PasswordField maxWidth="200.0" minWidth="200.0">
+                  <PasswordField fx:id="pwfPassword" maxWidth="200.0" minWidth="200.0">
                      <VBox.margin>
                         <Insets bottom="20.0" />
                      </VBox.margin>
                   </PasswordField>
                   <Label text="Email:" />
-                  <TextField maxWidth="200.0" minWidth="200.0">
+                  <TextField fx:id="txtfEmail" maxWidth="200.0" minWidth="200.0">
                      <VBox.margin>
                         <Insets bottom="20.0" />
                      </VBox.margin>
                   </TextField>
                   <HBox alignment="CENTER" prefHeight="25.0" prefWidth="150.0" spacing="10.0">
                      <children>
-                        <Button mnemonicParsing="false" text="Update User" />
-                        <Button mnemonicParsing="false" text="Delete User" />
+                        <Button mnemonicParsing="false" onAction="#updateUser" text="Update User" />
+                        <Button mnemonicParsing="false" onAction="#deleteUser" text="Delete User" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="25.0" prefWidth="150.0" spacing="10.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#createUser" text="Create User" />
                      </children>
                   </HBox>
                </children>
