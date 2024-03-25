@@ -1,6 +1,5 @@
 package sample.GUI.Controller.Pages;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.VBox;
@@ -16,7 +15,7 @@ public class HomeController {
     @FXML
     private void openEventWindow() throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/fxml/EventWindow.fxml"));
+        loader.setLocation(getClass().getResource("/fxml/EventCreationWindow.fxml"));
         VBox vBox = loader.load();
 
         window.getChildren().setAll(vBox);

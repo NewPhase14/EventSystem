@@ -87,6 +87,14 @@ public class AdminController implements Initializable {
 
         borderAdmin.setCenter(vBox);
     }
+    @FXML
+    private void openEventsWindow() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/fxml/pages/EventsWindow.fxml"));
+        VBox vBox = loader.load();
+
+        borderAdmin.setCenter(vBox);
+    }
 
     @FXML
     private void openProfileWindow() {
@@ -112,5 +120,4 @@ public class AdminController implements Initializable {
             throw new RuntimeException(e);
         }
     }
-
 }

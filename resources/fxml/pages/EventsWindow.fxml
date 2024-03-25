@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GUI.Controller.Pages.EventsController">
+   <children>
+      <TableView fx:id="tblEvents" prefHeight="438.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="colName" prefWidth="75.0" text="Name" />
+          <TableColumn fx:id="colTickets" prefWidth="75.0" text="Tickets" />
+            <TableColumn fx:id="colLocation" prefWidth="75.0" text="Location" />
+            <TableColumn fx:id="colStartDate" prefWidth="75.0" text="Start date" />
+            <TableColumn fx:id="colEndDate" prefWidth="75.0" text="End date" />
+            <TableColumn fx:id="colStartTime" prefWidth="75.0" text="Start Time" />
+            <TableColumn fx:id="colEndTime" prefWidth="75.0" text="End Time" />
+            <TableColumn fx:id="colDescription" prefWidth="75.0" text="Description" />
+        </columns>
+      </TableView>
+   </children>
+</VBox>

@@ -7,7 +7,7 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 
-public class EventController {
+public class EventCreationController {
 
 
     @FXML
