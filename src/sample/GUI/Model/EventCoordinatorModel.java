@@ -5,6 +5,8 @@ import javafx.collections.ObservableList;
 import sample.BE.EventCoordinator;
 import sample.BLL.EventCoordinatorManager;
 
+import java.util.List;
+
 public class EventCoordinatorModel {
     private EventCoordinatorManager eventCoordinatorManager;
     private ObservableList<EventCoordinator> observableEventCoordinators;
@@ -32,5 +34,12 @@ public class EventCoordinatorModel {
     public void deleteEventCoordinator(EventCoordinator selectedEventCoordinator) throws Exception {
         eventCoordinatorManager.deleteEventCoordinator(selectedEventCoordinator);
         observableEventCoordinators.remove(selectedEventCoordinator);
+    }
+
+    public void searchEventCoordinator(String query) throws Exception {
+        List<EventCoordinator> searchresult = eventCoordinatorManager.searchEventCoordinator(query);
+        observableEventCoordinators.clear();
+        observableEventCoordinators.addAll(searchresult);
+
     }
 }

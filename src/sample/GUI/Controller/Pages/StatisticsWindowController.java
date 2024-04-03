@@ -40,5 +40,8 @@ public class StatisticsWindowController implements Initializable {
                 }));
     }
 
+    private void searchBar(){
+        
+    }
 
 }

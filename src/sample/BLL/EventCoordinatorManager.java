@@ -1,6 +1,7 @@
 package sample.BLL;
 
 import sample.BE.EventCoordinator;
+import sample.BLL.util.StatisticsSearcher;
 import sample.DAL.EventCoordinatorDAO;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,6 +9,7 @@ import java.util.List;
 
 public class EventCoordinatorManager {
     private final EventCoordinatorDAO eventCoordinatorDAO;
+    private StatisticsSearcher statisticsSearcher;
 
     private List<EventCoordinator> allEventCoordinators = new ArrayList<>();
 
@@ -29,5 +31,10 @@ public class EventCoordinatorManager {
     }
     public void deleteEventCoordinator(EventCoordinator selectedEventCoordinator) throws Exception {
         eventCoordinatorDAO.deleteEventCoordinator(selectedEventCoordinator);
+    }
+
+    public List<EventCoordinator> searchEventCoordinator(String query) throws Exception {
+        List<EventCoordinator> allEventCoordinators = getAllEventCoordinators();
+        return statisticsSearcher.search(allEventCoordinators, query);
     }
 }
