@@ -9,7 +9,7 @@ import java.util.List;
 
 public class EventCoordinatorManager {
     private final EventCoordinatorDAO eventCoordinatorDAO;
-    private StatisticsSearcher statisticsSearcher;
+    private StatisticsSearcher statisticsSearcher = new StatisticsSearcher();
 
     private List<EventCoordinator> allEventCoordinators = new ArrayList<>();
 
@@ -35,6 +35,7 @@ public class EventCoordinatorManager {
 
     public List<EventCoordinator> searchEventCoordinator(String query) throws Exception {
         List<EventCoordinator> allEventCoordinators = getAllEventCoordinators();
-        return statisticsSearcher.search(allEventCoordinators, query);
+        List<EventCoordinator> searchResult = statisticsSearcher.search(allEventCoordinators, query);
+        return searchResult;
     }
 }

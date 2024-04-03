@@ -12,14 +12,18 @@ public class StatisticsSearcher {
         List<EventCoordinator> searchResult = new ArrayList<>();
 
         for (EventCoordinator ec : searchBase){
-            if(compareToEventCoordinator(query, ec)){
+            if(compareToEventCoordinatorFN(query, ec) || compareToEventCoordinatorLN(query, ec)){
                 searchResult.add(ec);
             }
         }
         return searchResult;
     }
 
-    private boolean compareToEventCoordinator(String query, EventCoordinator eventCoordinator){
+    private boolean compareToEventCoordinatorFN(String query, EventCoordinator eventCoordinator){
         return eventCoordinator.getFirstName().toLowerCase().contains(query.toLowerCase());
+    }
+
+    private boolean compareToEventCoordinatorLN(String query, EventCoordinator eventCoordinator){
+        return eventCoordinator.getLastName().toLowerCase().contains(query.toLowerCase());
     }
 }

@@ -30,6 +30,8 @@ public class StatisticsWindowController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        searchBar();
+
         lstEventcoordinators.setItems(eventCoordinatorModel.getObservableEventCoordinators());
 
         lstEventcoordinators.getSelectionModel().selectedItemProperty().addListener(
@@ -41,7 +43,13 @@ public class StatisticsWindowController implements Initializable {
     }
 
     private void searchBar(){
-        
+        txtSearchfield.textProperty().addListener((observable, oldValue, newValue) -> {
+            try {
+                eventCoordinatorModel.searchEventCoordinator(newValue);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        });
     }
 
 }
