@@ -113,7 +113,7 @@ public class AdminController implements Initializable {
         }
     }
 
-    public void openStatisticsWindow(ActionEvent actionEvent) throws IOException {
+    public void openStatisticsWindow() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/fxml/pages/StatisticsWindow.fxml"));
         VBox vBox = loader.load();
@@ -121,4 +121,11 @@ public class AdminController implements Initializable {
         borderAdmin.setCenter(vBox);
     }
 
+    public void openUpdateWindow() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/fxml/pages/UpdateWindow.fxml"));
+        VBox vBox = loader.load();
+
+        borderAdmin.setCenter(vBox);
+    }
 }

@@ -5,14 +5,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="window" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="775.0" spacing="10.0" styleClass="input-window" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GUI.Controller.Pages.HomeController">
+<VBox fx:id="window" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="775.0" spacing="10.0" styleClass="input-window" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GUI.Controller.Pages.HomeController">
    <children>
       <Label styleClass="window-title" text="Home" />
       <VBox prefHeight="90.0" prefWidth="734.0">
@@ -61,17 +59,7 @@
       </HBox>
       <HBox prefHeight="300.0" prefWidth="200.0" spacing="10.0">
          <children>
-            <VBox prefHeight="300.0" prefWidth="550.0">
-               <children>
-                  <Label text="News" />
-                  <TableView prefWidth="200.0">
-                    <columns>
-                      <TableColumn prefWidth="100.0" text="Date" />
-                      <TableColumn prefWidth="450.0" text="News / Update" />
-                    </columns>
-                  </TableView>
-               </children>
-            </VBox>
+            <VBox prefHeight="300.0" prefWidth="550.0" />
             <VBox prefHeight="300.0" prefWidth="175.0">
                <children>
                   <Label text="Admin's" />
