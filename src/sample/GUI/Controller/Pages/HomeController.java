@@ -15,8 +15,7 @@ public class HomeController {
     @FXML
     private void openEventWindow() throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        //loader.setLocation(getClass().getResource("/fxml/EventCreationWindow.fxml"));
-        loader.setLocation(getClass().getResource("/fxml/EventUpdateDeleteWindow.fxml"));
+        loader.setLocation(getClass().getResource("/fxml/EventManagementWindow.fxml"));
         VBox vBox = loader.load();
 
 

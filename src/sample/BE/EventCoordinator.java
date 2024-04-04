@@ -1,12 +1,12 @@
 package sample.BE;
 
 public class EventCoordinator {
-    int id;
-    String firstName;
-    String lastName;
-    String username;
-    String password;
-    String email;
+    private int id;
+    private String firstName;
+    private String lastName;
+    private String username;
+    private String password;
+    private String email;
 
     public EventCoordinator(int id, String firstName, String lastName, String username, String password, String email) {
         this.id = id;

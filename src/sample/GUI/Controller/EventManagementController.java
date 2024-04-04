@@ -1,6 +1,5 @@
 package sample.GUI.Controller;
 
-import javafx.event.ActionEvent;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,11 +12,10 @@ import sample.GUI.Model.EventModel;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-public class EventUpdateDeleteController implements Initializable {
+public class EventManagementController implements Initializable {
 
     @FXML
     private Label lblAlert;
@@ -39,7 +37,11 @@ public class EventUpdateDeleteController implements Initializable {
 
     private EventModel eventModel;
 
-    public EventUpdateDeleteController() throws Exception {
+    /*
+    Fix Exception handling
+    EventcoordinatorID er hardcoded - fix when possible
+    */
+    public EventManagementController() throws Exception {
         this.eventModel = new EventModel();
     }
 
@@ -71,7 +73,6 @@ public class EventUpdateDeleteController implements Initializable {
 
         });
     }
-
 
     public void returnToHomeWindow() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/pages/HomeWindow.fxml"));

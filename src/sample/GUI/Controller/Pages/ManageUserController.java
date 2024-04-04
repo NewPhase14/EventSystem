@@ -1,6 +1,6 @@
 package sample.GUI.Controller.Pages;
 
-import javafx.collections.ListChangeListener;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,29 +9,27 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.VBox;
+
 import sample.BE.EventCoordinator;
 import sample.GUI.Model.EventCoordinatorModel;
 
-import java.awt.*;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
+
+/*
+Fix Exception handling
+*/
 public class ManageUserController implements Initializable {
     @FXML
     private TableView<EventCoordinator> tblUsers;
     @FXML
     private TableColumn<EventCoordinator, String> colFirstName, colLastName, colEmail;
     @FXML
-    private TextField txtfFirstName;
-    @FXML
-    private TextField txtfLastName;
-    @FXML
-    private TextField txtfUsername;
+    private TextField txtfFirstName, txtfLastName, txtfUsername, txtfEmail;
     @FXML
     private PasswordField pwfPassword;
-    @FXML
-    private TextField txtfEmail;
 
     private EventCoordinatorModel eventCoordinatorModel;
 
@@ -40,7 +38,7 @@ public class ManageUserController implements Initializable {
     }
 
     @FXML
-    private void updateUser(ActionEvent event) throws Exception {
+    private void updateUser() throws Exception {
         EventCoordinator selectedEventCoordinator = tblUsers.getSelectionModel().getSelectedItem();
         selectedEventCoordinator.setFirstName(txtfFirstName.getText());
         selectedEventCoordinator.setLastName(txtfLastName.getText());
@@ -52,12 +50,12 @@ public class ManageUserController implements Initializable {
     }
 
     @FXML
-    private void deleteUser(ActionEvent event) throws Exception {
+    private void deleteUser() throws Exception {
         eventCoordinatorModel.deleteEventCoordinator(tblUsers.getSelectionModel().getSelectedItem());
     }
 
     @FXML
-    private void createUser(ActionEvent event) throws Exception {
+    private void createUser() throws Exception {
         String firstName = txtfFirstName.getText();
         String lastName = txtfLastName.getText();
         String username = txtfUsername.getText();
