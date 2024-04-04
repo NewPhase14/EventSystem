@@ -81,7 +81,7 @@
                   </ImageView>
                </graphic>
                <VBox.margin>
-                  <Insets bottom="180.0" />
+                  <Insets bottom="175.0" />
                </VBox.margin>
             </Button>
             <Button alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#logout" prefHeight="35.0" prefWidth="125.0" text="Logout">
