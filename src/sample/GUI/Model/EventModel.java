@@ -4,14 +4,18 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import sample.BE.Event;
 import sample.BLL.EventManager;
+import sample.BLL.TicketManager;
 
+import java.io.IOException;
 import java.util.List;
 
 public class EventModel {
+    private TicketManager ticketManager;
     private EventManager eventManager;
     private ObservableList<Event> observableEvents;
 
     public EventModel() throws Exception {
+        ticketManager = new TicketManager();
         eventManager = new EventManager();
         observableEvents = FXCollections.observableArrayList();
         observableEvents.addAll(eventManager.getAllEvents());
@@ -34,6 +38,10 @@ public class EventModel {
     public void deleteEvent(Event selectedEvent) throws Exception {
         eventManager.deleteEvent(selectedEvent);
         observableEvents.remove(selectedEvent);
+    }
+
+    public void createPDF(Event event) throws IOException {
+        ticketManager.makePDF(event);
     }
 
 
