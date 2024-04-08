@@ -12,7 +12,7 @@
    <left>
       <VBox prefHeight="600.0" prefWidth="125.0" spacing="15.0" styleClass="side-menu-bar" BorderPane.alignment="CENTER_LEFT">
          <children>
-            <Button alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openHomeWindow" prefHeight="35.0" prefWidth="125.0" text="Home">
+            <Button alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openEventManagementWindow" prefHeight="35.0" prefWidth="125.0" text="Home">
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="25.0">
                      <image>

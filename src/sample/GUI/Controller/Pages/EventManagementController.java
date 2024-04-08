@@ -1,4 +1,4 @@
-package sample.GUI.Controller;
+package sample.GUI.Controller.Pages;
 
 
 import javafx.fxml.FXML;

@@ -13,7 +13,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import sample.GUI.Controller.Pages.StatisticsWindowController;
 import sample.GUI.Main;
 
 import java.io.IOException;
@@ -54,9 +53,9 @@ public class AdminController implements Initializable {
 
 
     @FXML
-    private void openHomeWindow() throws IOException {
+    private void openEventManagementWindow() throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/fxml/pages/HomeWindow.fxml"));
+        loader.setLocation(getClass().getResource("/fxml/pages/EventManagementWindow.fxml"));
         VBox vBox = loader.load();
 
         borderAdmin.setCenter(vBox);
@@ -107,7 +106,7 @@ public class AdminController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
             draggableWindow();
         try {
-            openHomeWindow();
+            openEventManagementWindow();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
