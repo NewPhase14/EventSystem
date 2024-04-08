@@ -17,7 +17,6 @@ import javafx.stage.Stage;
 import org.mindrot.jbcrypt.BCrypt;
 import sample.BE.Admin;
 import sample.BE.EventCoordinator;
-import sample.BLL.AdminManager;
 import sample.GUI.Main;
 import sample.GUI.Model.AdminModel;
 import sample.GUI.Model.EventCoordinatorModel;
@@ -39,8 +38,8 @@ public class LoginController implements Initializable {
     @FXML
     private Label lblError;
 
-    private EventCoordinatorModel eventCoordinatorModel;
-    private AdminModel adminModel;
+    private final EventCoordinatorModel eventCoordinatorModel;
+    private final AdminModel adminModel;
     public LoginController() throws Exception {
         eventCoordinatorModel = new EventCoordinatorModel();
         adminModel = new AdminModel();
