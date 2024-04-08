@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="borderAdmin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="background" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GUI.Controller.AdminController">
+<BorderPane fx:id="borderAdmin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="background" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GUI.Controller.AdminController">
    <left>
       <VBox prefHeight="600.0" prefWidth="125.0" spacing="15.0" styleClass="side-menu-bar" BorderPane.alignment="CENTER_LEFT">
          <children>
@@ -16,7 +16,7 @@
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="25.0">
                      <image>
-                        <Image url="@../icon/Home.png" />
+                        <Image url="@../icon/Home(white).png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -25,7 +25,7 @@
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="25.0">
                      <image>
-                        <Image url="@../icon/Administrator.png" />
+                        <Image url="@../icon/Events.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -37,7 +37,7 @@
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="25.0">
                      <image>
-                        <Image url="@../icon/Calendar.png" />
+                        <Image url="@../icon/Calendar(white).png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -46,7 +46,7 @@
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../icon/Update.png" />
+                        <Image url="@../icon/ManageEvent.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -58,7 +58,7 @@
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../icon/Chart(Black).png" />
+                        <Image url="@../icon/Chart(White).png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -76,7 +76,7 @@
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="25.0">
                      <image>
-                        <Image url="@../icon/Administrator.png" />
+                        <Image url="@../icon/Profile(white).png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -88,7 +88,7 @@
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="25.0">
                      <image>
-                        <Image url="@../icon/Logout.png" />
+                        <Image url="@../icon/Logout(white).png" />
                      </image>
                   </ImageView>
                </graphic>
