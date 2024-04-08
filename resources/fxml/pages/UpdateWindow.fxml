@@ -11,7 +11,7 @@
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
    <children>
-      <Label styleClass="window-title" text="Update" />
+      <Label styleClass="window-title" text="Updates" />
       <VBox alignment="CENTER" prefHeight="555.0" prefWidth="755.0">
          <children>
             <TableView prefHeight="520.0" prefWidth="732.0" VBox.vgrow="NEVER">
