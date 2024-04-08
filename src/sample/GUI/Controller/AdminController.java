@@ -92,7 +92,7 @@ public class AdminController implements Initializable {
     }
     @FXML
     private void logout() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/LoginWindow.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/menu/LoginWindow.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         scene.setFill(Color.TRANSPARENT);

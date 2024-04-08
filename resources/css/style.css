@@ -79,3 +79,9 @@
     -fx-border-color: black;
     -fx-border-width: 2;
 }
+
+.logout-button{
+    -fx-background-radius: 0 0 0 10;
+    -fx-background-color: #4B4B4B;
+}
+

@@ -10,18 +10,13 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="window" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="775.0" styleClass="input-window" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GUI.Controller.Pages.EventManagementController">
+<VBox fx:id="window" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="775.0" spacing="10.0" styleClass="input-window" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GUI.Controller.Pages.EventManagementController">
    <children>
-      <HBox alignment="CENTER_LEFT" prefHeight="1.0" prefWidth="775.0">
+      <HBox alignment="CENTER" prefHeight="1.0" prefWidth="775.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#returnToHomeWindow" text="&lt;">
-               <HBox.margin>
-                  <Insets left="30.0" />
-               </HBox.margin>
-            </Button>
             <Label styleClass="window-title" text="Event Management">
                <HBox.margin>
-                  <Insets left="247.0" />
+                  <Insets />
                </HBox.margin>
             </Label>
          </children>
@@ -147,15 +142,12 @@
                </children>
             </VBox>
          </children>
-         <padding>
-            <Insets bottom="25.0" left="30.0" right="30.0" top="25.0" />
-         </padding>
       </HBox>
    </children>
    <opaqueInsets>
       <Insets />
    </opaqueInsets>
    <padding>
-      <Insets top="10.0" />
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
 </VBox>

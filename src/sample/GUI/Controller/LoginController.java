@@ -47,13 +47,13 @@ public class LoginController implements Initializable {
     @FXML
     private void loginButton() throws IOException {
         if (txfUsername.getText().equals("1") && pwfPassword.getText().equals("123")) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/AdminWindow.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/menu/AdminWindow.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             scene.setFill(Color.TRANSPARENT);
             Stage stage = Main.s;
             stage.setScene(scene);
-            stage.getIcons().add(new Image("/icon/CuteOtter.png"));
+            stage.getIcons().add(new Image("/icon/EASVLogo.png"));
             stage.centerOnScreen();
             stage.show();
         }
