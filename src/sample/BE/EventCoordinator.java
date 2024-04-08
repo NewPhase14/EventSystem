@@ -7,7 +7,6 @@ public class EventCoordinator {
     private String username;
     private String password;
     private String email;
-    private UserType userType;
 
     public EventCoordinator(int id, String firstName, String lastName, String username, String password, String email) {
         this.id = id;
@@ -16,7 +15,6 @@ public class EventCoordinator {
         this.username = username;
         this.password = password;
         this.email = email;
-        this.userType = UserType.EVENT_COORDINATOR;
     }
 
     public EventCoordinator(String firstName, String lastName, String username, String password, String email) {
@@ -25,7 +23,6 @@ public class EventCoordinator {
         this.username = username;
         this.password = password;
         this.email = email;
-        this.userType = UserType.EVENT_COORDINATOR;
     }
 
     public int getId() {
