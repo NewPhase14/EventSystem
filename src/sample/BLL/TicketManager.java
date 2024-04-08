@@ -1,18 +1,32 @@
 package sample.BLL;
 
+import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDDocumentInformation;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.font.PDType0Font;
+import org.apache.pdfbox.printing.PDFPageable;
 import sample.BE.Event;
 
+import javax.mail.Session;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import java.io.File;
 import java.io.IOException;
+import java.util.Properties;
 
 public class TicketManager {
 
-    public void makePDF(Event event) throws IOException {
+    public void createTicket(Event event, int amount) throws IOException, PrinterException {
+        for (int i = 0; i < amount; i++) {
+            makePDF(event);
+            // printPDF(); Do not uncomment as we do not want to actually print
+            // sendMail(); Same with this
+        }
+    }
+
+    private void makePDF(Event event) throws IOException {
 
         PDDocument document = new PDDocument();
         PDPage page = new PDPage();
@@ -70,6 +84,19 @@ public class TicketManager {
     private PDType0Font getFont(PDDocument pdDocument) throws IOException {
         PDType0Font font = PDType0Font.load(pdDocument, new File("resources/fonts/Anta-Regular.ttf"));
         return font;
+    }
+
+    // No usages because we don't actually want to print
+    private void printPDF() throws IOException, PrinterException {
+        PrinterJob job = PrinterJob.getPrinterJob();
+        PDDocument document = Loader.loadPDF(new File("resources/data/tickets/ticket.pdf"));
+        job.setPageable(new PDFPageable(document));
+        job.print();
+    }
+
+    private void sendMail() {
+        Properties properties = new Properties();
+        Session session = Session.getDefaultInstance(properties, null);
     }
 
 }

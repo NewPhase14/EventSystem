@@ -1,13 +1,17 @@
 package sample.GUI.Controller.Pages;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.VBox;
 import sample.BE.Event;
 import sample.GUI.Model.EventModel;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
 import java.util.ResourceBundle;
@@ -15,6 +19,9 @@ import java.util.ResourceBundle;
 public class EventsController implements Initializable {
 
     private final EventModel eventModel;
+
+    @FXML
+    private VBox window;
 
     public EventsController() throws Exception {
         eventModel = new EventModel();
@@ -28,6 +35,15 @@ public class EventsController implements Initializable {
     private TableColumn<Event, Integer> colTickets;
     @FXML
     private TableColumn<Event, Date> colStartDate, colEndDate;
+
+    @FXML
+    private void OnClickCreateTicket(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/fxml/pages/TicketWindow.fxml"));
+        VBox vBox = loader.load();
+
+        window.getChildren().setAll(vBox);
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

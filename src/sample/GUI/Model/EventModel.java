@@ -6,6 +6,7 @@ import sample.BE.Event;
 import sample.BLL.EventManager;
 import sample.BLL.TicketManager;
 
+import java.awt.print.PrinterException;
 import java.io.IOException;
 import java.util.List;
 
@@ -40,8 +41,8 @@ public class EventModel {
         observableEvents.remove(selectedEvent);
     }
 
-    public void createPDF(Event event) throws IOException {
-        ticketManager.makePDF(event);
+    public void createTicket(Event event, int amount) throws IOException, PrinterException {
+        ticketManager.createTicket(event, amount);
     }
 
 
