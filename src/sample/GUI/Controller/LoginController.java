@@ -61,7 +61,7 @@ public class LoginController implements Initializable {
         for (Admin admin : adminModel.getObservableEventCoordinators()) {
             if (txfUsername.getText().equals(admin.getUsername())) {
                 if (BCrypt.checkpw(pwfPassword.getText(),admin.getPassword())) {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/menu/EventCoordinatorWindow.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/menu/AdminWindow.fxml"));
                     Parent root = loader.load();
                     Scene scene = new Scene(root);
                     scene.setFill(Color.TRANSPARENT);
@@ -81,7 +81,7 @@ public class LoginController implements Initializable {
         for (EventCoordinator eventCoordinator : eventCoordinatorModel.getObservableEventCoordinators()) {
             if (txfUsername.getText().equals(eventCoordinator.getUsername())) {
                 if (BCrypt.checkpw(pwfPassword.getText(),eventCoordinator.getPassword())) {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/menu/AdminWindow.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/menu/EventCoordinatorWindow.fxml"));
                     Parent root = loader.load();
                     Scene scene = new Scene(root);
                     scene.setFill(Color.TRANSPARENT);
