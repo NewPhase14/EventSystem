@@ -25,25 +25,7 @@
       </VBox>
       <HBox prefHeight="25.0" spacing="20.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#openEventWindow" text="Add new event">
-               <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="25.0">
-                     <image>
-                        <Image url="@../../icon/AddEvent.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button mnemonicParsing="false" text="Delete event">
-               <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="25.0">
-                     <image>
-                        <Image url="@../../icon/Delete.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button mnemonicParsing="false" text="Update event">
+            <Button mnemonicParsing="false" onAction="#openEventWindow" text="Manage Events">
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="25.0">
                      <image>
