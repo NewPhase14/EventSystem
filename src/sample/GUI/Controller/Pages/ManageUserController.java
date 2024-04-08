@@ -10,6 +10,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import org.mindrot.jbcrypt.BCrypt;
 import sample.BE.EventCoordinator;
 import sample.GUI.Model.EventCoordinatorModel;
 
@@ -43,7 +44,11 @@ public class ManageUserController implements Initializable {
         selectedEventCoordinator.setFirstName(txtfFirstName.getText());
         selectedEventCoordinator.setLastName(txtfLastName.getText());
         selectedEventCoordinator.setUsername(txtfUsername.getText());
-        selectedEventCoordinator.setPassword(pwfPassword.getText());
+        String oldpw = pwfPassword.getText();
+        String salt = BCrypt.gensalt(14);
+        String newpw = BCrypt.hashpw(oldpw,salt);
+        selectedEventCoordinator.setPassword(newpw);
+
         selectedEventCoordinator.setEmail(txtfEmail.getText());
 
         eventCoordinatorModel.updateEventCoordinator(selectedEventCoordinator);
@@ -60,9 +65,11 @@ public class ManageUserController implements Initializable {
         String lastName = txtfLastName.getText();
         String username = txtfUsername.getText();
         String password = pwfPassword.getText();
+        String salt = BCrypt.gensalt(14);
+        String pw = BCrypt.hashpw(password,salt);
         String email = txtfEmail.getText();
 
-        EventCoordinator eventCoordinator = new EventCoordinator(firstName,lastName,username,password,email);
+        EventCoordinator eventCoordinator = new EventCoordinator(firstName,lastName,username,pw,email);
         eventCoordinatorModel.createEventCoordinator(eventCoordinator);
     }
 
@@ -77,7 +84,6 @@ public class ManageUserController implements Initializable {
             txtfFirstName.setText(newValue.getFirstName());
             txtfLastName.setText(newValue.getLastName());
             txtfUsername.setText(newValue.getUsername());
-            pwfPassword.setText(newValue.getPassword());
             txtfEmail.setText(newValue.getEmail());
         });
     }

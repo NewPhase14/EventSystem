@@ -14,7 +14,11 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import org.mindrot.jbcrypt.BCrypt;
+import sample.BE.EventCoordinator;
 import sample.GUI.Main;
+import sample.GUI.Model.EventCoordinatorModel;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -32,6 +36,10 @@ public class LoginController implements Initializable {
     @FXML
     private Label lblError;
 
+    private EventCoordinatorModel eventCoordinatorModel;
+    public LoginController() throws Exception {
+        eventCoordinatorModel = new EventCoordinatorModel();
+    }
     @FXML
     private void minimizeButton(ActionEvent event) {
         Stage s = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -46,23 +54,27 @@ public class LoginController implements Initializable {
 
     @FXML
     private void loginButton() throws IOException {
-        if (txfUsername.getText().equals("1") && pwfPassword.getText().equals("123")) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/menu/AdminWindow.fxml"));
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-            scene.setFill(Color.TRANSPARENT);
-            Stage stage = Main.s;
-            stage.setScene(scene);
-            stage.getIcons().add(new Image("/icon/EASVLogo.png"));
-            stage.centerOnScreen();
-            stage.show();
+        for (EventCoordinator eventCoordinator : eventCoordinatorModel.getObservableEventCoordinators()) {
+            if (txfUsername.getText().equals(eventCoordinator.getUsername())) {
+                if (BCrypt.checkpw(pwfPassword.getText(),eventCoordinator.getPassword())) {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/menu/AdminWindow.fxml"));
+                    Parent root = loader.load();
+                    Scene scene = new Scene(root);
+                    scene.setFill(Color.TRANSPARENT);
+                    Stage stage = Main.s;
+                    stage.setScene(scene);
+                    stage.getIcons().add(new Image("/icon/EASVLogo.png"));
+                    stage.centerOnScreen();
+                    stage.show();
+                }
+            } else if (txfUsername.getText().isEmpty() || pwfPassword.getText().isEmpty()){
+                lblError.setText("Fill in both Username and Password");
+            }
+            else {
+                lblError.setText("Wrong Username or Password");
+            }
         }
-        else if (txfUsername.getText().isEmpty() || pwfPassword.getText().isEmpty()){
-            lblError.setText("Fill in both Username and Password");
-        }
-        else {
-            lblError.setText("Wrong Username or Password");
-        }
+
     }
 
     private void draggableWindow(){
@@ -79,8 +91,8 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        txfUsername.setText("1");
-        pwfPassword.setText("123");
+        txfUsername.setText("KKensen");
+        pwfPassword.setText("qwer1234");
         draggableWindow();
     }
 }
