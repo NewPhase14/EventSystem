@@ -40,20 +40,6 @@ public class Event {
         this.eventCoordinatorId = eventCoordinatorId;
     }
 
-    public Event(int id, String name, int tickets, String location, LocalDate startDate, LocalDate endDate, String startTime, String endTime, String description) {
-        this.id = id;
-        this.name = name;
-        this.tickets = tickets;
-        this.location = location;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.description = description;
-    }
-
-
-
     public int getId() {
         return id;
     }
