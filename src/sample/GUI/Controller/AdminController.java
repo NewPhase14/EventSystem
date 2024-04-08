@@ -106,7 +106,7 @@ public class AdminController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
             draggableWindow();
         try {
-            openEventManagementWindow();
+            openEventsWindow();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
