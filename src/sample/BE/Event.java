@@ -1,24 +1,21 @@
 package sample.BE;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Timer;
+import java.time.LocalDate;
 
 public class Event {
 
     private int id;
     private String name;
-
-    //private List<Eventkoordinator> eventkoordinator;
     private int tickets;
     private String location;
-    private Date startDate;
-    private Date endDate;
+    private LocalDate startDate;
+    private LocalDate endDate;
     private String startTime;
     private String endTime;
     private String description;
+    private int eventCoordinatorId;
 
-    public Event(int id, String name, int tickets, String location, Date startDate, Date endDate, String startTime, String endTime, String description) {
+    public Event(int id, String name, int tickets, String location, LocalDate startDate, LocalDate endDate, String startTime, String endTime, String description, int eventCoordinatorId) {
         this.id = id;
         this.name = name;
         this.tickets = tickets;
@@ -28,6 +25,19 @@ public class Event {
         this.startTime = startTime;
         this.endTime = endTime;
         this.description = description;
+        this.eventCoordinatorId = eventCoordinatorId;
+    }
+
+    public Event(String name, int tickets, String location, LocalDate startDate, LocalDate endDate, String startTime, String endTime, String description, int eventCoordinatorId) {
+        this.name = name;
+        this.tickets = tickets;
+        this.location = location;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.description = description;
+        this.eventCoordinatorId = eventCoordinatorId;
     }
 
     public int getId() {
@@ -58,19 +68,19 @@ public class Event {
         this.location = location;
     }
 
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
 
@@ -97,4 +107,14 @@ public class Event {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public int getEventcoordinator() {
+        return eventCoordinatorId;
+    }
+
+    @Override
+    public String toString() {
+        return  name;
+    }
+
 }

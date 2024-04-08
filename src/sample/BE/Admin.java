@@ -1,6 +1,6 @@
 package sample.BE;
 
-public class EventCoordinator {
+public class Admin {
     private int id;
     private String firstName;
     private String lastName;
@@ -8,7 +8,7 @@ public class EventCoordinator {
     private String password;
     private String email;
 
-    public EventCoordinator(int id, String firstName, String lastName, String username, String password, String email) {
+    public Admin(int id, String firstName, String lastName, String username, String password, String email) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -17,7 +17,7 @@ public class EventCoordinator {
         this.email = email;
     }
 
-    public EventCoordinator(String firstName, String lastName, String username, String password, String email) {
+    public Admin(String firstName, String lastName, String username, String password, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;

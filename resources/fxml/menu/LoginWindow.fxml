@@ -7,36 +7,41 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GUI.Controller.LoginController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GUI.Controller.LoginController">
    <left>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="375.0" prefWidth="300.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitWidth="307.0" layoutY="133.0">
+            <ImageView fitWidth="300.0" preserveRatio="true">
                <image>
-                  <Image url="@../icon/Easvhvid.png" />
+                  <Image url="@../../icon/EASVLogo.png" />
                </image>
+               <VBox.margin>
+                  <Insets left="50.0" />
+               </VBox.margin>
             </ImageView>
          </children>
          <BorderPane.margin>
-            <Insets left="20.0" />
+            <Insets />
          </BorderPane.margin>
-      </AnchorPane>
+      </VBox>
    </left>
    <right>
-      <VBox alignment="CENTER" prefHeight="400.0" prefWidth="300.0" spacing="30.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="375.0" prefWidth="300.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
             <ImageView>
                <image>
-                  <Image url="@../icon/Locked-lock.png" />
+                  <Image url="@../../icon/Locked-lock.png" />
                </image>
             </ImageView>
             <Label fx:id="lblError" styleClass="error-message" />
-            <TextField fx:id="txfUsername" alignment="CENTER" maxWidth="160.0" promptText="Username" />
+            <TextField fx:id="txfUsername" alignment="CENTER" maxWidth="160.0" promptText="Username">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin></TextField>
             <PasswordField fx:id="pwfPassword" alignment="CENTER" maxWidth="160.0" promptText="Password" />
             <Button mnemonicParsing="false" onAction="#loginButton" styleClass="login-button" text="Log In" />
          </children>
@@ -52,7 +57,7 @@
                <graphic>
                   <ImageView fitHeight="5.0" fitWidth="12.0">
                      <image>
-                        <Image url="@../icon/Minimise.png" />
+                        <Image url="@../../icon/Minimise.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -61,7 +66,7 @@
                <graphic>
                   <ImageView fitHeight="15.0" fitWidth="12.0">
                      <image>
-                        <Image url="@../icon/Close.png" />
+                        <Image url="@../../icon/Close.png" />
                      </image>
                   </ImageView>
                </graphic>

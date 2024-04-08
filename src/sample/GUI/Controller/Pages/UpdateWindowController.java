@@ -1,4 +1,4 @@
 package sample.GUI.Controller.Pages;
 
-public class AddUserController {
+public class UpdateWindowController {
 }

@@ -23,7 +23,7 @@ public class EventsController implements Initializable {
     @FXML
     private TableView<Event> tblEvents;
     @FXML
-    private TableColumn<Event, String> colName, colLocation, colStartTime, colEndTime, colDescription;
+    private TableColumn<Event, String> colName, colLocation, colStartTime, colEndTime;
     @FXML
     private TableColumn<Event, Integer> colTickets;
     @FXML
@@ -38,7 +38,6 @@ public class EventsController implements Initializable {
         colStartTime.setCellValueFactory(new PropertyValueFactory<>("startTime"));
         colEndTime.setCellValueFactory(new PropertyValueFactory<>("endTime"));
         colTickets.setCellValueFactory(new PropertyValueFactory<>("tickets"));
-        colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
         tblEvents.setItems(eventModel.getObservableEvents());
     }
 }

@@ -8,42 +8,15 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="borderAdmin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="background" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GUI.Controller.AdminController">
+<BorderPane fx:id="borderAdmin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="background" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GUI.Controller.EventCoordinatorController">
    <left>
       <VBox prefHeight="600.0" prefWidth="125.0" spacing="15.0" styleClass="side-menu-bar" BorderPane.alignment="CENTER_LEFT">
          <children>
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#openHomeWindow" prefWidth="125.0" text="Home">
+            <Button alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openEventsWindow" prefHeight="35.0" prefWidth="125.0" text="Events">
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="25.0">
                      <image>
-                        <Image url="@../icon/Home.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#openManageUserWindow" prefWidth="125.0" text="Manage User">
-               <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="25.0">
-                     <image>
-                        <Image url="@../icon/Management.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#openCalendarWindow" prefWidth="125.0" text="Calendar">
-               <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="25.0">
-                     <image>
-                        <Image url="@../icon/Calendar.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#openEventsWindow" prefWidth="125.0" text="Events">
-               <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="25.0">
-                     <image>
-                        <Image url="@../icon/Administrator.png" />
+                        <Image url="@../../icon/Events.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -51,23 +24,41 @@
                   <Insets />
                </VBox.margin>
             </Button>
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#openProfileWindow" prefWidth="125.0" text="Profile">
+            <Button alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openEventManagementWindow" prefHeight="35.0" prefWidth="125.0" text="Manage Events">
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="25.0">
                      <image>
-                        <Image url="@../icon/Administrator.png" />
+                        <Image url="@../../icon/Home(white).png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openCalendarWindow" prefHeight="35.0" prefWidth="125.0" text="Calendar">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0">
+                     <image>
+                        <Image url="@../../icon/Calendar(white).png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openProfileWindow" prefHeight="35.0" prefWidth="125.0" text="Profile">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0">
+                     <image>
+                        <Image url="@../../icon/Profile(white).png" />
                      </image>
                   </ImageView>
                </graphic>
                <VBox.margin>
-                  <Insets bottom="280.0" />
+                  <Insets bottom="325.0" />
                </VBox.margin>
             </Button>
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#logout" prefWidth="125.0" text="Logout">
+            <Button alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#logout" prefHeight="35.0" prefWidth="125.0" styleClass="logout-button" text="Logout">
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="25.0">
                      <image>
-                        <Image url="@../icon/Logout.png" />
+                        <Image url="@../../icon/Logout(white).png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -79,31 +70,31 @@
    </left>
    <top>
       <HBox fx:id="hBoxTopBar" alignment="TOP_RIGHT" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="900.0" styleClass="title-bar">
-         <ImageView fitHeight="25.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="18.0" pickOnBounds="true" preserveRatio="true">
             <image>
-               <Image url="@../icon/Easvhvid.png" />
+               <Image url="@../../icon/EASVLogo.png" />
             </image>
             <HBox.margin>
-               <Insets left="10.0" />
+               <Insets bottom="5.0" top="5.0" />
             </HBox.margin>
          </ImageView>
          <Button focusTraversable="false" maxHeight="24.0" minHeight="24.0" mnemonicParsing="false" onAction="#minimizeButton" styleClass="minimize-button">
             <graphic>
                <ImageView fitHeight="5.0" fitWidth="12.0">
                   <image>
-                     <Image url="@../icon/Minimise.png" />
+                     <Image url="@../../icon/Minimise.png" />
                   </image>
                </ImageView>
             </graphic>
             <HBox.margin>
-               <Insets left="730.0" />
+               <Insets left="760.0" />
             </HBox.margin>
          </Button>
          <Button focusTraversable="false" maxHeight="24.0" minHeight="24.0" mnemonicParsing="false" onAction="#closeButton" styleClass="close-button">
             <graphic>
                <ImageView fitHeight="15.0" fitWidth="12.0">
                   <image>
-                     <Image url="@../icon/Close.png" />
+                     <Image url="@../../icon/Close.png" />
                   </image>
                </ImageView>
             </graphic>
@@ -111,6 +102,6 @@
       </HBox>
    </top>
    <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+      <VBox prefHeight="200.0" prefWidth="100.0" styleClass="input-window" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>

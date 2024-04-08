@@ -17,13 +17,13 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/LoginWindow.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/menu/LoginWindow.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         scene.setFill(Color.TRANSPARENT);
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
-        primaryStage.getIcons().add(new Image("/icon/CuteOtter.png"));
+        primaryStage.getIcons().add(new Image("/icon/EASVLogo.png"));
         primaryStage.setTitle("Login Screen");
         primaryStage.initStyle(StageStyle.TRANSPARENT);
         s = primaryStage;

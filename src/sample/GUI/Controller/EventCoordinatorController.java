@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AdminController implements Initializable {
+public class EventCoordinatorController implements Initializable {
     private double mousePosX = 0;
     private double mousePosY = 0;
     @FXML
@@ -61,14 +61,6 @@ public class AdminController implements Initializable {
         borderAdmin.setCenter(vBox);
     }
 
-    @FXML
-    private void openManageUserWindow() throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/fxml/pages/ManageUserWindow.fxml"));
-        VBox vBox = loader.load();
-
-        borderAdmin.setCenter(vBox);
-    }
 
     @FXML
     private void openCalendarWindow() throws IOException {
@@ -89,7 +81,9 @@ public class AdminController implements Initializable {
 
     @FXML
     private void openProfileWindow() {
+
     }
+
     @FXML
     private void logout() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/menu/LoginWindow.fxml"));
@@ -104,7 +98,7 @@ public class AdminController implements Initializable {
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-            draggableWindow();
+        draggableWindow();
         try {
             openEventsWindow();
         } catch (IOException e) {
@@ -120,11 +114,5 @@ public class AdminController implements Initializable {
         borderAdmin.setCenter(vBox);
     }
 
-    public void openUpdateWindow() throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/fxml/pages/UpdateWindow.fxml"));
-        VBox vBox = loader.load();
 
-        borderAdmin.setCenter(vBox);
-    }
 }
