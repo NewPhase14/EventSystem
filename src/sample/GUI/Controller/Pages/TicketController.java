@@ -6,6 +6,7 @@ import javafx.scene.control.TextField;
 import sample.BE.Event;
 import sample.GUI.Model.EventModel;
 
+import javax.mail.MessagingException;
 import java.awt.print.PrinterException;
 import java.io.IOException;
 
@@ -24,10 +25,15 @@ public class TicketController {
     }
 
     @FXML
-    private void OnClickPrintAndSendMail(ActionEvent actionEvent) throws IOException, PrinterException {
+    private void OnClickPrintAndSendMail(ActionEvent actionEvent) throws IOException, PrinterException, MessagingException {
         for (Event event : eventModel.getObservableEvents()) {
             if (event.getName().equalsIgnoreCase(txtEventName.getText())) {
-                eventModel.createTicket(event, Integer.parseInt(txtTicketAmount.getText()));
+                if (!txtEmail.getText().contains("@")) {
+                    eventModel.createTicket(event, Integer.parseInt(txtTicketAmount.getText()), txtEmail.getText());
+                }
+                else {
+                    System.out.println("gg mand");
+                }
             }
         }
 

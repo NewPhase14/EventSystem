@@ -2,3 +2,8 @@ Server:
 Database:
 User:
 Password:
+
+EmailName:
+Email:
+ActualEmail:
+EmailPassword:

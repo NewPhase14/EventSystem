@@ -6,6 +6,7 @@ import sample.BE.Event;
 import sample.BLL.EventManager;
 import sample.BLL.TicketManager;
 
+import javax.mail.MessagingException;
 import java.awt.print.PrinterException;
 import java.io.IOException;
 import java.util.List;
@@ -41,8 +42,8 @@ public class EventModel {
         observableEvents.remove(selectedEvent);
     }
 
-    public void createTicket(Event event, int amount) throws IOException, PrinterException {
-        ticketManager.createTicket(event, amount);
+    public void createTicket(Event event, int amount, String email) throws IOException, PrinterException, MessagingException {
+        ticketManager.createTicket(event, amount, email);
     }
 
 
