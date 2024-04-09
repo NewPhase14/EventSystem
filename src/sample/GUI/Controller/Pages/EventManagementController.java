@@ -83,7 +83,6 @@ public class EventManagementController implements Initializable {
 
     public void createEvent() throws Exception {
         if (!txtEventName.getText().isEmpty() && !txtAvailableTickets.getText().isEmpty() && !txtEventLocation.getText().isEmpty() && dpEventStart != null && dpEventEnd != null && !txtEventStartTime.getText().isEmpty() && !txtEventEndTime.getText().isEmpty()){
-
             String name = txtEventName.getText();
             int tickets = Integer.parseInt(txtAvailableTickets.getText());
             String location = txtEventLocation.getText();
@@ -92,10 +91,13 @@ public class EventManagementController implements Initializable {
             String startTime = txtEventStartTime.getText();
             String endTime = txtEventEndTime.getText();
             String description = txtaEventDescription.getText();
-
-            Event event = new Event(name, tickets, location, startDate, endDate, startTime, endTime, description, 1);
-            eventModel.createEvent(event);
-            clearFields();
+            if(startTime.length() == 5 && endTime.length() == 5) {
+                Event event = new Event(name, tickets, location, startDate, endDate, startTime, endTime, description, 1);
+                eventModel.createEvent(event);
+                clearFields();
+            } else {
+                lblAlert.setText("Wrong time format");
+            }
         } else {
             lblAlert.setText("Fill out all fields");
         }
@@ -137,5 +139,6 @@ public class EventManagementController implements Initializable {
         dpEventEnd.setValue(null);
         dpEventStart.setValue(null);
         lstEvents.getSelectionModel().clearSelection();
+        lblAlert.setText("");
     }
 }
