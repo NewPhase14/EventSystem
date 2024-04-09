@@ -89,7 +89,7 @@ public class ManageUserController implements Initializable {
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         tblUsers.setItems(eventCoordinatorModel.getObservableEventCoordinators());
         tblUsers.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            if (tblUsers.getSelectionModel().getSelectedItem() != null) {
+            if (newValue != null) {
                 txtfFirstName.setText(newValue.getFirstName());
                 txtfLastName.setText(newValue.getLastName());
                 txtfUsername.setText(newValue.getUsername());
