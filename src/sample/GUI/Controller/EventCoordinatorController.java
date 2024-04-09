@@ -105,14 +105,4 @@ public class EventCoordinatorController implements Initializable {
             throw new RuntimeException(e);
         }
     }
-
-    public void openStatisticsWindow() throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/fxml/pages/StatisticsWindow.fxml"));
-        VBox vBox = loader.load();
-
-        borderAdmin.setCenter(vBox);
-    }
-
-
 }
