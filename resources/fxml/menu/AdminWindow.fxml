@@ -10,7 +10,7 @@
 
 <BorderPane fx:id="borderAdmin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="920.0" styleClass="background" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GUI.Controller.AdminController">
    <left>
-      <VBox prefHeight="600.0" prefWidth="145.0" spacing="15.0" styleClass="side-menu-bar" BorderPane.alignment="CENTER_LEFT">
+      <VBox prefHeight="600.0" prefWidth="145.0" styleClass="side-menu-bar" BorderPane.alignment="CENTER_LEFT">
          <children>
             <Button alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openEventsWindow" prefHeight="35.0" prefWidth="145.0" styleClass="side-menu-button" text="Events">
                <graphic>
@@ -81,7 +81,7 @@
                   </ImageView>
                </graphic>
                <VBox.margin>
-                  <Insets bottom="180.0" />
+                  <Insets bottom="285.0" />
                </VBox.margin>
             </Button>
             <Button alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#logout" prefHeight="35.0" prefWidth="145.0" styleClass="logout-button" text="Logout">
@@ -94,6 +94,9 @@
                </graphic>
             </Button>
          </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
          <padding>
             <Insets top="10.0" />
          </padding></VBox>
