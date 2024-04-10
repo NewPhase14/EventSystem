@@ -41,6 +41,9 @@ public class EventsController implements Initializable {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/fxml/pages/TicketWindow.fxml"));
         VBox vBox = loader.load();
+        TicketController ticketController = loader.getController();
+        Event event = tblEvents.getSelectionModel().getSelectedItem();
+        ticketController.setTxtEventName(event);
 
         window.getChildren().setAll(vBox);
     }

@@ -28,7 +28,7 @@ public class TicketController {
     private void OnClickPrintAndSendMail(ActionEvent actionEvent) throws IOException, PrinterException, MessagingException {
         for (Event event : eventModel.getObservableEvents()) {
             if (event.getName().equalsIgnoreCase(txtEventName.getText())) {
-                if (!txtEmail.getText().contains("@")) {
+                if (txtEmail.getText().contains("@")) {
                     eventModel.createTicket(event, Integer.parseInt(txtTicketAmount.getText()), txtEmail.getText());
                 }
                 else {
@@ -36,6 +36,9 @@ public class TicketController {
                 }
             }
         }
+    }
 
+    public void setTxtEventName(Event event) {
+        txtEventName.setText(event.getName());
     }
 }

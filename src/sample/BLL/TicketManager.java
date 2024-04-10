@@ -1,5 +1,6 @@
 package sample.BLL;
 
+import net.sourceforge.barbecue.Barcode;
 import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDDocumentInformation;
@@ -15,7 +16,6 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
-import javax.sql.DataSource;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
 import java.io.*;
@@ -25,8 +25,8 @@ import java.util.Properties;
 
 public class TicketManager {
 
-    // private static final String PROP_FILE = "config/config.settings";
-    private List<File> files;
+    private static final String PROP_FILE = "config/config.settings";
+    private static List<File> files;
 
     private TicketDAO ticketDAO;
 
@@ -88,11 +88,11 @@ public class TicketManager {
             contentStream.endText();
         }
 
+
+
         contentStream.close();
 
         document.save(new File("resources/data/tickets/ticket" + index + ".pdf"));
-
-        System.out.println("It worked");
 
         document.close();
 
@@ -103,8 +103,6 @@ public class TicketManager {
         return font;
     }
 
-
-
     // No usages because we don't actually want to print
     private void printPDF() throws IOException, PrinterException {
         PrinterJob job = PrinterJob.getPrinterJob();
@@ -114,15 +112,32 @@ public class TicketManager {
     }
 
     private void sendMail(String email, int amount) throws MessagingException, IOException {
-        Properties properties = new Properties();
-        properties.put("email", "emailname");
-        Session session = Session.getDefaultInstance(properties, null);
+
+        Properties informationProperties = new Properties();
+        informationProperties.load(new FileInputStream((PROP_FILE)));
+
+        String from = informationProperties.getProperty("From");
+        String host = informationProperties.getProperty("Host");
+        String port = informationProperties.getProperty("Port");
+        String password = informationProperties.getProperty("Password");
+
+        Properties props = new Properties();
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", host);
+        props.put("mail.smtp.port", port);
+
+        Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(from, password);
+            }
+        });
 
         MimeMessage message = new MimeMessage(session);
-        message.setFrom("actualmail");
-        message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
         message.setSubject("Event Ticket");
         message.setSentDate(new Date());
+        message.setFrom(new InternetAddress(from));
+        message.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
 
         MimeBodyPart content = new MimeBodyPart();
         content.setText("Amount of tickets: " + amount);
@@ -131,16 +146,17 @@ public class TicketManager {
         files = getCurrentFiles();
         for (File file : files) {
             MimeBodyPart attachment = new MimeBodyPart();
-            // not done
+            attachment.attachFile(file);
+            multipart.addBodyPart(attachment);
+            // maybe done
         }
+        message.setContent(multipart);
 
-
-        Transport.send(message, "email", "password");
-
+        Transport.send(message);
+        System.out.println("Email sent!");
     }
 
     private List<File> getCurrentFiles() {
         return ticketDAO.getFiles();
     }
-
 }
