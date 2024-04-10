@@ -37,8 +37,9 @@ public class EventDAO {
                 String description = rs.getString("description");
                 int coordinator = rs.getInt("coordinator");
 
-
-                Event event = new Event(id,name,tickets,location,startDate,endDate,startTime,endTime,description, coordinator);
+                String sTime = startTime.substring(0,5);
+                String eTime = endTime.substring(0,5);
+                Event event = new Event(id,name,tickets,location,startDate,endDate,sTime,eTime,description, coordinator);
                 allEvents.add(event);
             }
             return allEvents;
@@ -59,8 +60,8 @@ public class EventDAO {
         stmt.setString(3,event.getLocation());
         stmt.setDate(4, Date.valueOf(event.getStartDate()));
         stmt.setDate(5, Date.valueOf(event.getEndDate()));
-        stmt.setTime(6, Time.valueOf(event.getStartTime()));
-        stmt.setTime(7, Time.valueOf(event.getEndTime()));
+        stmt.setTime(6, Time.valueOf(event.getStartTime() + ":00"));
+        stmt.setTime(7, Time.valueOf(event.getEndTime() + ":00"));
         stmt.setString(8,event.getDescription());
         stmt.setInt(9, event.getEventcoordinator());
 

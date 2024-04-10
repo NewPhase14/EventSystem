@@ -9,8 +9,9 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox fx:id="window" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="775.0" spacing="10.0" styleClass="input-window" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GUI.Controller.Pages.EventManagementController">
+<VBox fx:id="window" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="775.0" spacing="10.0" styleClass="input-window" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GUI.Controller.Pages.EventManagementController">
    <children>
       <HBox alignment="CENTER" prefHeight="1.0" prefWidth="775.0">
          <children>
@@ -45,7 +46,10 @@
                               <Insets />
                            </HBox.margin>
                            <children>
-                              <Label fx:id="lblAlert" />
+                              <Label fx:id="lblAlert" textFill="#d31c1c">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font></Label>
                            </children>
                         </VBox>
                      </children>
@@ -77,7 +81,7 @@
                         <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="125.0">
                            <children>
                               <Label text="Event start at:" />
-                              <DatePicker fx:id="dpEventStart" minWidth="200.0" />
+                              <DatePicker fx:id="dpEventStart" editable="false" minWidth="200.0" promptText="XX.XX.XXXX Format" />
                            </children>
                            <HBox.margin>
                               <Insets />
@@ -86,7 +90,7 @@
                         <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="116.0">
                            <children>
                               <Label text="Event end at:" />
-                              <DatePicker fx:id="dpEventEnd" minWidth="200.0" />
+                              <DatePicker fx:id="dpEventEnd" editable="false" minWidth="200.0" promptText="XX.XX.XXXX Format" />
                            </children>
                            <HBox.margin>
                               <Insets />
@@ -99,7 +103,7 @@
                         <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="125.0">
                            <children>
                               <Label text="Event start time:" />
-                              <TextField fx:id="txtEventStartTime" maxWidth="200.0" minWidth="200.0" promptText="XX:XX:XX Format" />
+                              <TextField fx:id="txtEventStartTime" maxWidth="200.0" minWidth="200.0" promptText="XX:XX Format" />
                            </children>
                            <HBox.margin>
                               <Insets />
@@ -108,7 +112,7 @@
                         <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="116.0">
                            <children>
                               <Label text="Event end time:" />
-                              <TextField fx:id="txtEventEndTime" maxWidth="200.0" minWidth="200.0" promptText="XX:XX:XX Format" />
+                              <TextField fx:id="txtEventEndTime" maxWidth="200.0" minWidth="200.0" promptText="XX:XX Format" />
                            </children>
                            <HBox.margin>
                               <Insets />
@@ -132,7 +136,7 @@
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
                      <children>
                         <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#createEvent" prefHeight="25.0" prefWidth="60.0" text="Create" />
-                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#updateEvent" prefHeight="25.0" prefWidth="60.0" text="Update" />
+                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#updateEvent" prefHeight="25.0" text="Update" />
                         <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#deleteEvent" prefHeight="25.0" prefWidth="60.0" text="Delete" />
                      </children>
                      <VBox.margin>

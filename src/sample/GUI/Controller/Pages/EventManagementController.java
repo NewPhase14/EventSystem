@@ -1,6 +1,8 @@
 package sample.GUI.Controller.Pages;
 
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -61,29 +63,26 @@ public class EventManagementController implements Initializable {
                 txtEventEndTime.setText(newValue.getEndTime());
                 txtaEventDescription.setText(newValue.getDescription());
             } else {
-                txtEventName.setText("");
-                txtAvailableTickets.setText("");
-                txtEventLocation.setText("");
-                dpEventStart.setValue(null);
-                dpEventEnd.setValue(null);
-                txtEventStartTime.setText("");
-                txtEventEndTime.setText("");
-                txtaEventDescription.setText("");
+                clearFields();
             }
+        });
 
+
+        //Only numbers can be written
+        txtAvailableTickets.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.matches("\\d*")) {
+                    txtAvailableTickets.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+            }
         });
     }
 
-    public void returnToHomeWindow() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/pages/HomeWindow.fxml"));
-        VBox homeWindow = loader.load();
-        BorderPane adminWindow = (BorderPane) window.getScene().getRoot();
-        adminWindow.setCenter(homeWindow);
-    }
+
 
     public void createEvent() throws Exception {
         if (!txtEventName.getText().isEmpty() && !txtAvailableTickets.getText().isEmpty() && !txtEventLocation.getText().isEmpty() && dpEventStart != null && dpEventEnd != null && !txtEventStartTime.getText().isEmpty() && !txtEventEndTime.getText().isEmpty()){
-
             String name = txtEventName.getText();
             int tickets = Integer.parseInt(txtAvailableTickets.getText());
             String location = txtEventLocation.getText();
@@ -92,9 +91,13 @@ public class EventManagementController implements Initializable {
             String startTime = txtEventStartTime.getText();
             String endTime = txtEventEndTime.getText();
             String description = txtaEventDescription.getText();
-
-            Event event = new Event(name, tickets, location, startDate, endDate, startTime, endTime, description, 1);
-            eventModel.createEvent(event);
+            if(startTime.length() == 5 && endTime.length() == 5) {
+                Event event = new Event(name, tickets, location, startDate, endDate, startTime, endTime, description, 1);
+                eventModel.createEvent(event);
+                clearFields();
+            } else {
+                lblAlert.setText("Wrong time format");
+            }
         } else {
             lblAlert.setText("Fill out all fields");
         }
@@ -113,7 +116,7 @@ public class EventManagementController implements Initializable {
             selectedEvent.setDescription(txtaEventDescription.getText());
 
             eventModel.updateEvent(selectedEvent);
-            lstEvents.refresh();
+            clearFields();
         }
     }
     public void deleteEvent() throws Exception {
@@ -122,6 +125,20 @@ public class EventManagementController implements Initializable {
             eventModel.deleteEvent(selectedEvent);
             lstEvents.getItems().remove(selectedEvent);
         }
+        clearFields();
+    }
 
+    public void clearFields() {
+        txtAvailableTickets.clear();
+        txtEventLocation.clear();
+        txtEventName.clear();
+        txtEventLocation.clear();
+        txtEventEndTime.clear();
+        txtEventStartTime.clear();
+        txtaEventDescription.clear();
+        dpEventEnd.setValue(null);
+        dpEventStart.setValue(null);
+        lstEvents.getSelectionModel().clearSelection();
+        lblAlert.setText("");
     }
 }

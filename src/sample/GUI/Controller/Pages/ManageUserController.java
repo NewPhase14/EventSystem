@@ -48,10 +48,11 @@ public class ManageUserController implements Initializable {
         String salt = BCrypt.gensalt(14);
         String newpw = BCrypt.hashpw(oldpw,salt);
         selectedEventCoordinator.setPassword(newpw);
-
         selectedEventCoordinator.setEmail(txtfEmail.getText());
+        pwfPassword.clear();
 
         eventCoordinatorModel.updateEventCoordinator(selectedEventCoordinator);
+
     }
 
     @FXML
@@ -68,9 +69,17 @@ public class ManageUserController implements Initializable {
         String salt = BCrypt.gensalt(14);
         String pw = BCrypt.hashpw(password,salt);
         String email = txtfEmail.getText();
-
+        clearFields();
         EventCoordinator eventCoordinator = new EventCoordinator(firstName,lastName,username,pw,email);
         eventCoordinatorModel.createEventCoordinator(eventCoordinator);
+    }
+
+    public void clearFields() {
+        txtfFirstName.clear();
+        txtfLastName.clear();
+        txtfEmail.clear();
+        txtfUsername.clear();
+        pwfPassword.clear();
     }
 
     @Override
@@ -79,12 +88,15 @@ public class ManageUserController implements Initializable {
         colLastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         tblUsers.setItems(eventCoordinatorModel.getObservableEventCoordinators());
-
         tblUsers.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            txtfFirstName.setText(newValue.getFirstName());
-            txtfLastName.setText(newValue.getLastName());
-            txtfUsername.setText(newValue.getUsername());
-            txtfEmail.setText(newValue.getEmail());
+            if (newValue != null) {
+                txtfFirstName.setText(newValue.getFirstName());
+                txtfLastName.setText(newValue.getLastName());
+                txtfUsername.setText(newValue.getUsername());
+                txtfEmail.setText(newValue.getEmail());
+            } else {
+                clearFields();
+            }
         });
     }
 }
