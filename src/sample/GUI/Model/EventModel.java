@@ -2,6 +2,8 @@ package sample.GUI.Model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import net.sourceforge.barbecue.BarcodeException;
+import net.sourceforge.barbecue.output.OutputException;
 import sample.BE.Event;
 import sample.BLL.EventManager;
 import sample.BLL.TicketManager;
@@ -42,7 +44,7 @@ public class EventModel {
         observableEvents.remove(selectedEvent);
     }
 
-    public void createTicket(Event event, int amount, String email) throws IOException, PrinterException, MessagingException {
+    public void createTicket(Event event, int amount, String email) throws IOException, PrinterException, MessagingException, BarcodeException, OutputException {
         ticketManager.createTicket(event, amount, email);
     }
 

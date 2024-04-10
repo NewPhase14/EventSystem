@@ -3,6 +3,8 @@ package sample.GUI.Controller.Pages;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import net.sourceforge.barbecue.BarcodeException;
+import net.sourceforge.barbecue.output.OutputException;
 import sample.BE.Event;
 import sample.GUI.Model.EventModel;
 
@@ -25,7 +27,7 @@ public class TicketController {
     }
 
     @FXML
-    private void OnClickPrintAndSendMail(ActionEvent actionEvent) throws IOException, PrinterException, MessagingException {
+    private void OnClickPrintAndSendMail(ActionEvent actionEvent) throws IOException, PrinterException, MessagingException, BarcodeException, OutputException {
         for (Event event : eventModel.getObservableEvents()) {
             if (event.getName().equalsIgnoreCase(txtEventName.getText())) {
                 if (txtEmail.getText().contains("@")) {

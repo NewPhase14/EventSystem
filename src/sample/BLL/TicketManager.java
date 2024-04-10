@@ -1,12 +1,17 @@
 package sample.BLL;
 
 import net.sourceforge.barbecue.Barcode;
+import net.sourceforge.barbecue.BarcodeException;
+import net.sourceforge.barbecue.BarcodeFactory;
+import net.sourceforge.barbecue.BarcodeImageHandler;
+import net.sourceforge.barbecue.output.OutputException;
 import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDDocumentInformation;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.font.PDType0Font;
+import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 import org.apache.pdfbox.printing.PDFPageable;
 import sample.BE.Event;
 import sample.DAL.TicketDAO;
@@ -19,6 +24,7 @@ import javax.mail.internet.MimeMultipart;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
 import java.io.*;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Properties;
@@ -34,7 +40,7 @@ public class TicketManager {
         ticketDAO = new TicketDAO();
     }
 
-    public void createTicket(Event event, int amount, String email) throws IOException, PrinterException, MessagingException {
+    public void createTicket(Event event, int amount, String email) throws IOException, PrinterException, MessagingException, BarcodeException, OutputException {
         for (int i = 0; i < amount; i++) {
             makePDF(event, amount);
             // printPDF(); Do not uncomment as we do not want to actually print
@@ -43,7 +49,7 @@ public class TicketManager {
         sendMail(email, amount);
     }
 
-    private void makePDF(Event event, int index) throws IOException {
+    private void makePDF(Event event, int index) throws IOException, BarcodeException, OutputException {
 
         PDDocument document = new PDDocument();
         PDPage page = new PDPage();
@@ -51,6 +57,18 @@ public class TicketManager {
 
         PDDocumentInformation pdd = document.getDocumentInformation();
         pdd.setTitle("Ticket");
+
+        Barcode barcode = BarcodeFactory.createCode128(event.getName() + index);
+        barcode.setBarHeight(60);
+        barcode.setBarHeight(2);
+
+        System.out.println(barcode.getData());
+
+        File imgFile = new File("resources/data/barcodes/barcode" + index + ".png");
+
+        BarcodeImageHandler.savePNG(barcode, imgFile);
+
+        PDImageXObject pdImage = PDImageXObject.createFromFile("resources/data/barcodes/barcode" + index + ".png", document);
 
         PDPageContentStream contentStream = new PDPageContentStream(document, page);
 
@@ -88,7 +106,7 @@ public class TicketManager {
             contentStream.endText();
         }
 
-
+        contentStream.drawImage(pdImage, 25, 200);
 
         contentStream.close();
 
