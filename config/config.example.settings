@@ -3,7 +3,7 @@ Database:
 User:
 Password:
 
-EmailName:
-Email:
-ActualEmail:
-EmailPassword:
+From:
+Host:
+Port:
+Password:
