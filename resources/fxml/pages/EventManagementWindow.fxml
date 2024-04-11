@@ -81,7 +81,7 @@
                         <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="125.0">
                            <children>
                               <Label text="Event start at:" />
-                              <DatePicker fx:id="dpEventStart" editable="false" minWidth="200.0" promptText="XX.XX.XXXX Format" />
+                              <DatePicker fx:id="dpEventStart" editable="false" minWidth="200.0" />
                            </children>
                            <HBox.margin>
                               <Insets />
@@ -90,7 +90,7 @@
                         <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="116.0">
                            <children>
                               <Label text="Event end at:" />
-                              <DatePicker fx:id="dpEventEnd" editable="false" minWidth="200.0" promptText="XX.XX.XXXX Format" />
+                              <DatePicker fx:id="dpEventEnd" editable="false" minWidth="200.0" />
                            </children>
                            <HBox.margin>
                               <Insets />

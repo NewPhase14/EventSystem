@@ -14,7 +14,7 @@
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
                   <Label text="Customer Email" />
-                  <TextField fx:id="txtEmail" />
+                  <TextField fx:id="txtEmail" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="150.0" />
                </children>
             </VBox>
          </children>
@@ -24,7 +24,7 @@
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
                   <Label text="Event" />
-                  <TextField fx:id="txtEventName" />
+                  <TextField fx:id="txtEventName" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="150.0" />
                </children>
             </VBox>
          </children>
@@ -34,7 +34,7 @@
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
                   <Label text="Ticket Amount" />
-                  <TextField fx:id="txtTicketAmount" />
+                  <TextField fx:id="txtTicketAmount" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="150.0" />
                </children>
             </VBox>
          </children>

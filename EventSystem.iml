@@ -9,10 +9,10 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="microsoft.sqlserver.mssql.jdbc" level="project" />
-    <orderEntry type="library" exported="" name="apache.pdfbox" level="project" />
     <orderEntry type="library" exported="" name="javax.mail.api" level="project" />
     <orderEntry type="library" exported="" name="de.svenkubiak.jBCrypt" level="project" />
     <orderEntry type="library" exported="" name="sun.mail.javax" level="project" />
     <orderEntry type="library" name="net.sourceforge.barbecue" level="project" />
+    <orderEntry type="library" name="apache.pdfbox" level="project" />
   </component>
 </module>

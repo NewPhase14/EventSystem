@@ -42,9 +42,8 @@ public class TicketManager {
 
     public void createTicket(Event event, int amount, String email) throws IOException, PrinterException, MessagingException, BarcodeException, OutputException {
         for (int i = 0; i < amount; i++) {
-            makePDF(event, amount);
+            makePDF(event, i);
             // printPDF(); Do not uncomment as we do not want to actually print
-
         }
         sendMail(email, amount);
     }
@@ -137,13 +136,15 @@ public class TicketManager {
         String from = informationProperties.getProperty("From");
         String host = informationProperties.getProperty("Host");
         String port = informationProperties.getProperty("Port");
-        String password = informationProperties.getProperty("Password");
+        String password = informationProperties.getProperty("Emailpassword");
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.host", host);
         props.put("mail.smtp.port", port);
+        props.put("mail.smtp.connection-timeout", "10000");
+        props.put("mail.smtp.timeout", "10000");
 
         Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
