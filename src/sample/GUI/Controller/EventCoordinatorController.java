@@ -83,8 +83,12 @@ public class EventCoordinatorController implements Initializable {
     }
 
     @FXML
-    private void openProfileWindow() {
+    private void openProfileWindow() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/fxml/pages/ProfileWindow.fxml"));
+        VBox vBox = loader.load();
 
+        borderAdmin.setCenter(vBox);
     }
 
     @FXML

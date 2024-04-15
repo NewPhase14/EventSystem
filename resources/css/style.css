@@ -90,3 +90,10 @@
     -fx-background-color: #4B4B4B;
 }
 
+.profilepicture{
+    -fx-background-color: #4B4B4B;
+}
+
+.profilepicture:hover{
+    -fx-background-color: transparent;
+}
