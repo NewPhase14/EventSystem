@@ -5,13 +5,13 @@ import javafx.collections.ObservableList;
 import net.sourceforge.barbecue.BarcodeException;
 import net.sourceforge.barbecue.output.OutputException;
 import sample.BE.Event;
+import sample.BE.Ticket;
 import sample.BLL.EventManager;
 import sample.BLL.TicketManager;
 
 import javax.mail.MessagingException;
 import java.awt.print.PrinterException;
 import java.io.IOException;
-import java.util.List;
 
 public class EventModel {
     private TicketManager ticketManager;
@@ -44,8 +44,8 @@ public class EventModel {
         observableEvents.remove(selectedEvent);
     }
 
-    public void createTicket(Event event, int amount, String email) throws IOException, PrinterException, MessagingException, BarcodeException, OutputException {
-        ticketManager.createTicket(event, amount, email);
+    public void createTicket(Event event, int amount, Ticket ticket) throws Exception {
+        ticketManager.sendTicket(event, amount, ticket);
     }
 
 

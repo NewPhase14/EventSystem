@@ -7,41 +7,65 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="775.0" spacing="20.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GUI.Controller.Pages.TicketController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="775.0" spacing="10.0" styleClass="input-window" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GUI.Controller.Pages.TicketController">
    <children>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="CENTER" prefWidth="732.0" styleClass="window-title">
          <children>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <Label text="Sell Tickets" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="100.0">
+         <children>
+            <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Label text="Customer Email" />
+                  <Label text="Customer first name" />
+                  <TextField fx:id="txtFirstName" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="150.0" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label text="Customer last name" />
+                  <TextField fx:id="txtLastName" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="150.0" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="100.0">
+         <children>
+            <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label text="Customer email" />
                   <TextField fx:id="txtEmail" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="150.0" />
                </children>
             </VBox>
-         </children>
-      </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
                <children>
                   <Label text="Event" />
-                  <TextField fx:id="txtEventName" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="150.0" />
+                  <TextField fx:id="txtEventName" editable="false" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="150.0" />
                </children>
             </VBox>
          </children>
       </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="732.0">
          <children>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Label text="Ticket Amount" />
-                  <TextField fx:id="txtTicketAmount" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="150.0" />
+                  <Label text="Amount of tickets" />
+                  <TextField fx:id="txtTicketAmount" alignment="TOP_LEFT" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="150.0" />
                </children>
             </VBox>
          </children>
+         <VBox.margin>
+            <Insets left="165.0" />
+         </VBox.margin>
       </HBox>
-      <Button mnemonicParsing="false" onAction="#OnClickPrintAndSendMail" text="Print &amp; Send mail" />
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#OnClickSendEmail" text="Send ticket via email" />
+         </children>
+      </HBox>
    </children>
    <padding>
-      <Insets bottom="20.0" left="50.0" right="20.0" top="50.0" />
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
 </VBox>

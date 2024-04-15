@@ -17,9 +17,10 @@
       </HBox>
       <TableView fx:id="tblEvents" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="442.0" prefWidth="735.0" VBox.vgrow="NEVER">
         <columns>
-          <TableColumn fx:id="colName" prefWidth="153.0" resizable="false" text="Name" />
-          <TableColumn fx:id="colTickets" prefWidth="65.0" resizable="false" text="Tickets" />
-            <TableColumn fx:id="colLocation" prefWidth="195.0" resizable="false" text="Location" />
+          <TableColumn fx:id="colName" prefWidth="129.0" resizable="false" text="Name" />
+          <TableColumn fx:id="colTickets" prefWidth="89.0" resizable="false" text="Tickets" />
+            <TableColumn fx:id="colAvailableTickets" prefWidth="105.0" text="Available tickets" />
+            <TableColumn fx:id="colLocation" prefWidth="165.0" resizable="false" text="Location" />
             <TableColumn fx:id="colStartDate" resizable="false" text="Start date" />
             <TableColumn fx:id="colEndDate" resizable="false" text="End date" />
             <TableColumn fx:id="colStartTime" resizable="false" text="Start Time" />
