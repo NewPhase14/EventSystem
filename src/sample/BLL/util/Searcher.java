@@ -5,7 +5,7 @@ import sample.BE.EventCoordinator;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StatisticsSearcher {
+public class Searcher {
 
 
     public List<EventCoordinator> search(List<EventCoordinator> searchBase, String query){

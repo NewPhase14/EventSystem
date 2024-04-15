@@ -1,10 +1,7 @@
 package sample.BLL;
 
 import sample.BE.Admin;
-import sample.BE.EventCoordinator;
-import sample.BLL.util.StatisticsSearcher;
 import sample.DAL.AdminDAO;
-import sample.DAL.EventCoordinatorDAO;
 
 import java.io.IOException;
 import java.util.ArrayList;

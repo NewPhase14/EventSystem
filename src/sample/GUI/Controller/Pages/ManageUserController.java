@@ -23,12 +23,13 @@ import java.util.ResourceBundle;
 Fix Exception handling
 */
 public class ManageUserController implements Initializable {
+
     @FXML
     private TableView<EventCoordinator> tblUsers;
     @FXML
     private TableColumn<EventCoordinator, String> colFirstName, colLastName, colEmail;
     @FXML
-    private TextField txtfFirstName, txtfLastName, txtfUsername, txtfEmail;
+    private TextField txtfFirstName, txtfLastName, txtfUsername, txtfEmail, searchEventcoordinator;
     @FXML
     private PasswordField pwfPassword;
 
@@ -97,6 +98,16 @@ public class ManageUserController implements Initializable {
             } else {
                 clearFields();
             }
+        });
+
+        searchEventcoordinator.textProperty().addListener((observable, oldValue, newValue) -> {
+           if (newValue != null) {
+               try {
+                   eventCoordinatorModel.searchEventCoordinator(newValue);
+               } catch (Exception e) {
+                   throw new RuntimeException(e);
+               }
+           }
         });
     }
 }
