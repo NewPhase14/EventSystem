@@ -14,6 +14,8 @@ import org.apache.pdfbox.pdmodel.font.PDType0Font;
 import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 import org.apache.pdfbox.printing.PDFPageable;
 import sample.BE.Event;
+import sample.BE.Ticket;
+import sample.DAL.EventDAO;
 import sample.DAL.TicketDAO;
 
 import javax.mail.*;
@@ -24,7 +26,6 @@ import javax.mail.internet.MimeMultipart;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
 import java.io.*;
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Properties;
@@ -35,20 +36,22 @@ public class TicketManager {
     private static List<File> files;
 
     private TicketDAO ticketDAO;
+    private EventDAO eventDAO;
 
-    public TicketManager() {
+    public TicketManager() throws IOException {
         ticketDAO = new TicketDAO();
+        eventDAO = new EventDAO();
     }
 
-    public void createTicket(Event event, int amount, String email) throws IOException, PrinterException, MessagingException, BarcodeException, OutputException {
+    public void sendTicket(Event event, int amount, Ticket ticket) throws Exception {
         for (int i = 0; i < amount; i++) {
-            makePDF(event, i);
-            // printPDF(); Do not uncomment as we do not want to actually print
+            makePDF(event, ticket);
         }
-        sendMail(email, amount);
+        //Doesnt work on school network/VPN
+        //sendMail(email, amount);
     }
 
-    private void makePDF(Event event, int index) throws IOException, BarcodeException, OutputException {
+    private void makePDF(Event event, Ticket ticket) throws Exception {
 
         PDDocument document = new PDDocument();
         PDPage page = new PDPage();
@@ -56,17 +59,17 @@ public class TicketManager {
 
         PDDocumentInformation pdd = document.getDocumentInformation();
         pdd.setTitle("Ticket");
-        Barcode barcode = BarcodeFactory.createCode128(event.getName() + index);
+        Barcode barcode = BarcodeFactory.createCode128(event.getName() + event.getAvailableTickets());
         barcode.setBarHeight(60);
         barcode.setBarHeight(2);
 
         System.out.println(barcode.getData());
 
-        File imgFile = new File("resources/data/barcodes/barcode" + index + ".png");
+        File imgFile = new File("resources/data/barcodes/barcode" + event.getAvailableTickets() + ".png");
 
         BarcodeImageHandler.savePNG(barcode, imgFile);
 
-        PDImageXObject pdImage = PDImageXObject.createFromFile("resources/data/barcodes/barcode" + index + ".png", document);
+        PDImageXObject pdImage = PDImageXObject.createFromFile("resources/data/barcodes/barcode" + event.getAvailableTickets() + ".png", document);
 
         PDPageContentStream contentStream = new PDPageContentStream(document, page);
 
@@ -108,7 +111,13 @@ public class TicketManager {
 
         contentStream.close();
 
-        document.save(new File("resources/data/tickets/ticket" + index + ".pdf"));
+        document.save(new File("resources/data/tickets/" +event.getName() + event.getAvailableTickets() + ".pdf"));
+        ticket.setBarCode(barcode.getData());
+
+        //find a way to not go through the event data access layer like this
+        event.sellTicket();
+        eventDAO.updateEvent(event);
+        createTicket(ticket);
 
         document.close();
 
@@ -135,7 +144,7 @@ public class TicketManager {
         String from = informationProperties.getProperty("From");
         String host = informationProperties.getProperty("Host");
         String port = informationProperties.getProperty("Port");
-        String password = informationProperties.getProperty("Emailpassword");
+        String password = informationProperties.getProperty("EmailPassword");
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
@@ -176,5 +185,9 @@ public class TicketManager {
 
     private List<File> getCurrentFiles() {
         return ticketDAO.getFiles();
+    }
+
+    private Ticket createTicket(Ticket newTicket) throws Exception {
+        return ticketDAO.createTicket(newTicket);
     }
 }

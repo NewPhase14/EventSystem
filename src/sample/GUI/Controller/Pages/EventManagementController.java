@@ -27,7 +27,7 @@ public class EventManagementController implements Initializable {
     private ListView<Event> lstEvents;
 
     @FXML
-    private TextField txtEventName, txtAvailableTickets, txtEventLocation, txtEventStartTime, txtEventEndTime;
+    private TextField txtEventName,txtTickets,txtAvailableTickets, txtEventLocation, txtEventStartTime, txtEventEndTime;
 
     @FXML
     private DatePicker dpEventStart, dpEventEnd;
@@ -56,7 +56,8 @@ public class EventManagementController implements Initializable {
         lstEvents.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null){
                 txtEventName.setText(newValue.getName());
-                txtAvailableTickets.setText(String.valueOf(newValue.getTickets()));
+                txtTickets.setText(String.valueOf(newValue.getTickets()));
+                txtAvailableTickets.setText(String.valueOf(newValue.getAvailableTickets()));
                 txtEventLocation.setText(newValue.getLocation());
                 dpEventStart.setValue(newValue.getStartDate());
                 dpEventEnd.setValue(newValue.getEndDate());

@@ -7,6 +7,7 @@ public class Event {
     private int id;
     private String name;
     private int tickets;
+    private int availableTickets;
     private String location;
     private LocalDate startDate;
     private LocalDate endDate;
@@ -15,7 +16,7 @@ public class Event {
     private String description;
     private int eventCoordinatorId;
 
-    public Event(int id, String name, int tickets, String location, LocalDate startDate, LocalDate endDate, String startTime, String endTime, String description, int eventCoordinatorId) {
+    public Event(int id, String name, int tickets, String location, LocalDate startDate, LocalDate endDate, String startTime, String endTime, String description, int eventCoordinatorId, int availableTickets) {
         this.id = id;
         this.name = name;
         this.tickets = tickets;
@@ -26,6 +27,7 @@ public class Event {
         this.endTime = endTime;
         this.description = description;
         this.eventCoordinatorId = eventCoordinatorId;
+        this.availableTickets = availableTickets;
     }
 
     public Event(String name, int tickets, String location, LocalDate startDate, LocalDate endDate, String startTime, String endTime, String description, int eventCoordinatorId) {
@@ -38,6 +40,7 @@ public class Event {
         this.endTime = endTime;
         this.description = description;
         this.eventCoordinatorId = eventCoordinatorId;
+        this.availableTickets = tickets;
     }
 
     public int getId() {
@@ -115,6 +118,18 @@ public class Event {
     @Override
     public String toString() {
         return  name;
+    }
+
+    public int getAvailableTickets() {
+        return availableTickets;
+    }
+
+    public void setAvailableTickets(int soldTickets) {
+       availableTickets -= soldTickets;
+    }
+
+    public void sellTicket() {
+        availableTickets--;
     }
 
 }

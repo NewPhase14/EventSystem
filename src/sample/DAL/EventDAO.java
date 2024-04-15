@@ -36,10 +36,11 @@ public class EventDAO {
                 String endTime = String.valueOf(rs.getTime("endTime"));
                 String description = rs.getString("description");
                 int coordinator = rs.getInt("coordinator");
+                int availableTickets = rs.getInt("availableTickets");
 
                 String sTime = startTime.substring(0,5);
                 String eTime = endTime.substring(0,5);
-                Event event = new Event(id,name,tickets,location,startDate,endDate,sTime,eTime,description, coordinator);
+                Event event = new Event(id,name,tickets,location,startDate,endDate,sTime,eTime,description, coordinator, availableTickets);
                 allEvents.add(event);
             }
             return allEvents;
@@ -50,7 +51,7 @@ public class EventDAO {
     }
 
     public Event createEvent(Event event) throws Exception {
-        String sql = "INSERT INTO dbo.Event (name,tickets,location,startDate,endDate,startTime,endTime,description,coordinator) VALUES (?,?,?,?,?,?,?,?,?);";
+        String sql = "INSERT INTO dbo.Event (name,tickets,location,startDate,endDate,startTime,endTime,description,coordinator,availableTickets) VALUES (?,?,?,?,?,?,?,?,?,?);";
 
         try (Connection conn = databaseConnector.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS))
@@ -64,6 +65,7 @@ public class EventDAO {
         stmt.setTime(7, Time.valueOf(event.getEndTime() + ":00"));
         stmt.setString(8,event.getDescription());
         stmt.setInt(9, event.getEventcoordinator());
+        stmt.setInt(10, event.getTickets());
 
         stmt.executeUpdate();
 
@@ -73,7 +75,7 @@ public class EventDAO {
         if (rs.next()) {
             id = rs.getInt(1);
         }
-        Event createdEvent = new Event(id, event.getName(), event.getTickets(), event.getLocation(), event.getStartDate(),event.getEndDate(),event.getStartTime(), event.getEndTime(), event.getDescription(), event.getEventcoordinator());
+        Event createdEvent = new Event(id, event.getName(), event.getTickets(), event.getLocation(), event.getStartDate(),event.getEndDate(),event.getStartTime(), event.getEndTime(), event.getDescription(), event.getEventcoordinator(), event.getTickets());
 
         return createdEvent;
         }
@@ -83,22 +85,24 @@ public class EventDAO {
     }
 
     public void updateEvent(Event event) throws Exception {
-        String sql = "UPDATE dbo.Event SET name = ?, tickets = ?, location = ?, startDate = ?, endDate = ?, startTime = CAST(? AS TIME), endTime = CAST(? AS TIME), description = ?\n" +
+        String sql = "UPDATE dbo.Event SET name = ?, tickets = ?, location = ?, startDate = ?, endDate = ?, startTime = CAST(? AS TIME), endTime = CAST(? AS TIME), description = ?, availableTickets = ?\n" +
                 "WHERE id = ?;";
 
         try (Connection conn = databaseConnector.getConnection();
             PreparedStatement stmt = conn.prepareStatement(sql))
         {
+            int hej = 30;
             stmt.setString(1,event.getName());
             stmt.setInt(2,event.getTickets());
             stmt.setString(3,event.getLocation());
             stmt.setDate(4, Date.valueOf(event.getStartDate()));
             stmt.setDate(5, Date.valueOf(event.getEndDate()));
-            stmt.setTime(6, Time.valueOf(event.getStartTime()));
-            stmt.setTime(7, Time.valueOf(event.getEndTime()));
+            stmt.setTime(6, Time.valueOf(event.getStartTime() + ":00"));
+            stmt.setTime(7, Time.valueOf(event.getEndTime() + ":00"));
             stmt.setString(8,event.getDescription());
+            stmt.setInt(9, event.getAvailableTickets());
 
-            stmt.setInt(9, event.getId());
+            stmt.setInt(10, event.getId());
 
             stmt.executeUpdate();
         }

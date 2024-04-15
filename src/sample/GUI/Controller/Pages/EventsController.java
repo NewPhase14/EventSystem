@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import sample.BE.Event;
 import sample.GUI.Model.EventModel;
@@ -32,7 +33,7 @@ public class EventsController implements Initializable {
     @FXML
     private TableColumn<Event, String> colName, colLocation, colStartTime, colEndTime;
     @FXML
-    private TableColumn<Event, Integer> colTickets;
+    private TableColumn<Event, Integer> colTickets, colAvailableTickets;
     @FXML
     private TableColumn<Event, Date> colStartDate, colEndDate;
 
@@ -44,8 +45,8 @@ public class EventsController implements Initializable {
         TicketController ticketController = loader.getController();
         Event event = tblEvents.getSelectionModel().getSelectedItem();
         ticketController.setTxtEventName(event);
-
-        window.getChildren().setAll(vBox);
+        BorderPane parent = (BorderPane) window.getParent();
+        parent.setCenter(vBox);
     }
 
     @Override
@@ -57,6 +58,7 @@ public class EventsController implements Initializable {
         colStartTime.setCellValueFactory(new PropertyValueFactory<>("startTime"));
         colEndTime.setCellValueFactory(new PropertyValueFactory<>("endTime"));
         colTickets.setCellValueFactory(new PropertyValueFactory<>("tickets"));
+        colAvailableTickets.setCellValueFactory(new PropertyValueFactory<>("availableTickets"));
         tblEvents.setItems(eventModel.getObservableEvents());
     }
 }

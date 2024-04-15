@@ -34,53 +34,48 @@
                      <children>
                         <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="125.0">
                            <children>
-                              <Label text="Event name:" />
+                              <Label text="Event name" />
                               <TextField fx:id="txtEventName" maxWidth="200.0" minWidth="200.0" />
                            </children>
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
                         </VBox>
-                        <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="200.0">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
+                        <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="125.0">
                            <children>
-                              <Label fx:id="lblAlert" textFill="#d31c1c">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font></Label>
+                              <Label text="Tickets" />
+                              <TextField fx:id="txtTickets" maxWidth="200.0" minWidth="200.0" />
                            </children>
                         </VBox>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="490.0" spacing="100.0">
                      <children>
-                        <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="125.0">
-                           <children>
-                              <Label text="Available tickets:" />
-                              <TextField fx:id="txtAvailableTickets" maxWidth="200.0" minWidth="200.0" />
-                           </children>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </VBox>
                         <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="116.0">
                            <children>
-                              <Label text="Event location:" />
+                              <Label text="Event location" />
                               <TextField fx:id="txtEventLocation" maxWidth="200.0" minWidth="200.0" />
                            </children>
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
                         </VBox>
+                        <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="200.0">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <children>
+                              <Label text="Avaialable tickets" />
+                              <TextField fx:id="txtAvailableTickets" />
+                           </children>
+                        </VBox>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="490.0" spacing="100.0">
                      <children>
                         <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="125.0">
                            <children>
-                              <Label text="Event start at:" />
+                              <Label text="Event start at" />
                               <DatePicker fx:id="dpEventStart" editable="false" minWidth="200.0" />
                            </children>
                            <HBox.margin>
@@ -89,7 +84,7 @@
                         </VBox>
                         <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="116.0">
                            <children>
-                              <Label text="Event end at:" />
+                              <Label text="Event end at" />
                               <DatePicker fx:id="dpEventEnd" editable="false" minWidth="200.0" />
                            </children>
                            <HBox.margin>
@@ -102,7 +97,7 @@
                      <children>
                         <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="125.0">
                            <children>
-                              <Label text="Event start time:" />
+                              <Label text="Event start time" />
                               <TextField fx:id="txtEventStartTime" maxWidth="200.0" minWidth="200.0" promptText="XX:XX Format" />
                            </children>
                            <HBox.margin>
@@ -111,7 +106,7 @@
                         </VBox>
                         <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="116.0">
                            <children>
-                              <Label text="Event end time:" />
+                              <Label text="Event end time" />
                               <TextField fx:id="txtEventEndTime" maxWidth="200.0" minWidth="200.0" promptText="XX:XX Format" />
                            </children>
                            <HBox.margin>
@@ -138,6 +133,11 @@
                         <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#createEvent" prefHeight="25.0" prefWidth="60.0" text="Create" />
                         <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#updateEvent" prefHeight="25.0" text="Update" />
                         <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#deleteEvent" prefHeight="25.0" prefWidth="60.0" text="Delete" />
+                        <Label fx:id="lblAlert" textFill="#d31c1c">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
                      </children>
                      <VBox.margin>
                         <Insets />
