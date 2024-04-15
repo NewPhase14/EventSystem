@@ -13,7 +13,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import sample.BE.EventCoordinator;
 import sample.GUI.Main;
+import sample.GUI.Model.LoggedInModel;
 
 import java.io.IOException;
 import java.net.URL;
@@ -26,6 +28,7 @@ public class EventCoordinatorController implements Initializable {
     private HBox hBoxTopBar;
     @FXML
     private BorderPane borderAdmin;
+    private EventCoordinator eventCoordinator = LoggedInModel.getInstance().getEventCoordinator();
 
     @FXML
     private void closeButton(ActionEvent event) {
@@ -99,6 +102,7 @@ public class EventCoordinatorController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         draggableWindow();
+        System.out.println(eventCoordinator);
         try {
             openEventsWindow();
         } catch (IOException e) {

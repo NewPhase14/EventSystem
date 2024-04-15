@@ -56,7 +56,6 @@ public class TicketManager {
 
         PDDocumentInformation pdd = document.getDocumentInformation();
         pdd.setTitle("Ticket");
-
         Barcode barcode = BarcodeFactory.createCode128(event.getName() + index);
         barcode.setBarHeight(60);
         barcode.setBarHeight(2);

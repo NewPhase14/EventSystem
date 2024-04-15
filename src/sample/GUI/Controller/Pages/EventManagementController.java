@@ -11,6 +11,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import sample.BE.Event;
 import sample.GUI.Model.EventModel;
+import sample.GUI.Model.LoggedInModel;
 
 import java.io.IOException;
 import java.net.URL;
@@ -92,7 +93,7 @@ public class EventManagementController implements Initializable {
             String endTime = txtEventEndTime.getText();
             String description = txtaEventDescription.getText();
             if(startTime.length() == 5 && endTime.length() == 5) {
-                Event event = new Event(name, tickets, location, startDate, endDate, startTime, endTime, description, 1);
+                Event event = new Event(name, tickets, location, startDate, endDate, startTime, endTime, description, LoggedInModel.getInstance().getEventCoordinator().getId());
                 eventModel.createEvent(event);
                 clearFields();
             } else {
