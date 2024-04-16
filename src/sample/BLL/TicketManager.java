@@ -14,6 +14,7 @@ import org.apache.pdfbox.pdmodel.font.PDType0Font;
 import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 import org.apache.pdfbox.printing.PDFPageable;
 import sample.BE.Event;
+import sample.BE.EventCoordinator;
 import sample.BE.Ticket;
 import sample.DAL.EventDAO;
 import sample.DAL.TicketDAO;
@@ -26,6 +27,7 @@ import javax.mail.internet.MimeMultipart;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Properties;
@@ -41,6 +43,10 @@ public class TicketManager {
     public TicketManager() throws IOException {
         ticketDAO = new TicketDAO();
         eventDAO = new EventDAO();
+    }
+
+    public int getSoldTickets(EventCoordinator eventCoordinator) throws Exception {
+      return ticketDAO.getSoldTickets(eventCoordinator);
     }
 
     public void sendTicket(Event event, int amount, Ticket ticket) throws Exception {
@@ -62,8 +68,6 @@ public class TicketManager {
         Barcode barcode = BarcodeFactory.createCode128(event.getName().toUpperCase() + event.getAvailableTickets());
         barcode.setBarHeight(60);
         barcode.setBarHeight(2);
-
-        System.out.println(barcode.getData());
 
         File imgFile = new File("resources/data/barcodes/barcode" + event.getAvailableTickets() + ".png");
 

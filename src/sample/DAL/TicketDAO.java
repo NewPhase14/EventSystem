@@ -1,11 +1,15 @@
 package sample.DAL;
 
 
+import com.microsoft.sqlserver.jdbc.SQLServerException;
+import sample.BE.Event;
+import sample.BE.EventCoordinator;
 import sample.BE.Ticket;
 
 import java.io.File;
 import java.io.IOException;
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,7 +50,26 @@ public class TicketDAO {
         }
     }
 
-    public List<File> getFiles() {
+    public int getSoldTickets(EventCoordinator eventCoordinator) throws Exception {
+        int soldTickets = 0;
+        String sql = "Select COUNT(eventCoordinator) AS soldTickets from dbo.Ticket where eventCoordinator = (?);";
+        try (Connection conn = databaseConnector.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql))
+        {
+            stmt.setInt(1, eventCoordinator.getId());
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+               return rs.getInt("soldTickets");
+            }
+            return 0;
+        }
+        catch(SQLException ex) {
+            throw new Exception("Couldn't get sold tickets from the database", ex);
+        }
+    }
+
+        public List<File> getFiles() {
         File[] directory = new File("resources/data/tickets").listFiles();
         List<File> fileList = new ArrayList<>();
         for (File file : directory) {
@@ -54,5 +77,6 @@ public class TicketDAO {
         }
         return fileList;
     }
+
 
 }

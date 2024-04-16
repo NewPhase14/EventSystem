@@ -91,7 +91,6 @@ public class EventDAO {
         try (Connection conn = databaseConnector.getConnection();
             PreparedStatement stmt = conn.prepareStatement(sql))
         {
-            int hej = 30;
             stmt.setString(1,event.getName());
             stmt.setInt(2,event.getTickets());
             stmt.setString(3,event.getLocation());

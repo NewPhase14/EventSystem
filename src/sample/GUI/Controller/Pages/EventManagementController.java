@@ -135,7 +135,7 @@ public class EventManagementController implements Initializable {
 
     public void updateEvent() throws Exception {
         Event selectedEvent = lstEvents.getSelectionModel().getSelectedItem();
-        if (selectedEvent != null){
+        if (selectedEvent != null) {
             selectedEvent.setName(txtEventName.getText());
             selectedEvent.setTickets(Integer.parseInt(txtAvailableTickets.getText()));
             selectedEvent.setLocation(txtEventLocation.getText());
@@ -144,11 +144,17 @@ public class EventManagementController implements Initializable {
             selectedEvent.setStartTime(txtEventStartTime.getText());
             selectedEvent.setEndTime(txtEventEndTime.getText());
             selectedEvent.setDescription(txtaEventDescription.getText());
-
-            eventModel.updateEvent(selectedEvent);
-            clearFields();
+            if (txtEventStartTime.getText().length() == 5 && txtEventEndTime.getText().length() == 5) {
+                eventModel.updateEvent(selectedEvent);
+                clearFields();
+            } else {
+                lblAlert.setText("Wrong time format");
+            }
+        } else {
+            lblAlert.setText("Fill out all fields");
         }
     }
+
     public void deleteEvent() throws Exception {
         Event selectedEvent = lstEvents.getSelectionModel().getSelectedItem();
         if (selectedEvent != null){

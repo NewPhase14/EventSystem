@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import net.sourceforge.barbecue.BarcodeException;
 import net.sourceforge.barbecue.output.OutputException;
 import sample.BE.Event;
+import sample.BE.EventCoordinator;
 import sample.BE.Ticket;
 import sample.BLL.EventManager;
 import sample.BLL.TicketManager;
@@ -48,5 +49,7 @@ public class EventModel {
         ticketManager.sendTicket(event, amount, ticket);
     }
 
-
+    public int getSoldTickets(EventCoordinator eventCoordinator) throws Exception {
+        return ticketManager.getSoldTickets(eventCoordinator);
+    }
 }
