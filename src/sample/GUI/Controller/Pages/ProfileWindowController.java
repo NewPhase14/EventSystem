@@ -9,7 +9,6 @@ import javafx.scene.control.TextField;
 import org.mindrot.jbcrypt.BCrypt;
 import sample.BE.Admin;
 import sample.BE.EventCoordinator;
-import sample.GUI.Model.AdminModel;
 import sample.GUI.Model.EventCoordinatorModel;
 import sample.GUI.Model.EventModel;
 import sample.GUI.Model.LoggedInModel;
@@ -52,11 +51,15 @@ public class ProfileWindowController implements Initializable {
         String password = pasPassword.getText();
         String salt = BCrypt.gensalt(14);
         String generatedPassword = BCrypt.hashpw(password,salt);
+        if (pasPassword.getText().isEmpty()) {
+            eventCoordinator.setEmail(email);
+            eventCoordinator.setUsername(username);
 
-        eventCoordinator.setUsername(username);
-        eventCoordinator.setPassword(generatedPassword);
-        eventCoordinator.setEmail(email);
-
+        } else {
+            eventCoordinator.setUsername(username);
+            eventCoordinator.setPassword(generatedPassword);
+            eventCoordinator.setEmail(email);
+        }
         eventCoordinatorModel.updateEventCoordinator(eventCoordinator);
         pasPassword.clear();
     }
@@ -67,7 +70,7 @@ public class ProfileWindowController implements Initializable {
         String email = eventCoordinator.getEmail();
         String username = eventCoordinator.getUsername();
         lblName.setText(firstName + " " + lastName);
-        txtTicketsSold.setText(String.valueOf(eventModel.getSoldTickets(eventCoordinator)));
+        txtTicketsSold.setText(String.valueOf(eventModel.getSoldTicketsByEventCoordinator(eventCoordinator)));
         txtEmail.setText(email);
         txtUsername.setText(username);
     }

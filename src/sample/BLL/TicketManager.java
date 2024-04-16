@@ -1,10 +1,8 @@
 package sample.BLL;
 
 import net.sourceforge.barbecue.Barcode;
-import net.sourceforge.barbecue.BarcodeException;
 import net.sourceforge.barbecue.BarcodeFactory;
 import net.sourceforge.barbecue.BarcodeImageHandler;
-import net.sourceforge.barbecue.output.OutputException;
 import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDDocumentInformation;
@@ -27,7 +25,6 @@ import javax.mail.internet.MimeMultipart;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
 import java.io.*;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Properties;
@@ -45,8 +42,12 @@ public class TicketManager {
         eventDAO = new EventDAO();
     }
 
-    public int getSoldTickets(EventCoordinator eventCoordinator) throws Exception {
-      return ticketDAO.getSoldTickets(eventCoordinator);
+    public int getSoldTicketsByEventCoordinator(EventCoordinator eventCoordinator) throws Exception {
+      return ticketDAO.getSoldTicketsByEventCoordinator(eventCoordinator);
+    }
+
+    public int getAllSoldTickets() throws Exception {
+        return ticketDAO.getAllSoldTickets();
     }
 
     public void sendTicket(Event event, int amount, Ticket ticket) throws Exception {

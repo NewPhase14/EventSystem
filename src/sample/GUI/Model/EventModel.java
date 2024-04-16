@@ -2,17 +2,11 @@ package sample.GUI.Model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import net.sourceforge.barbecue.BarcodeException;
-import net.sourceforge.barbecue.output.OutputException;
 import sample.BE.Event;
 import sample.BE.EventCoordinator;
 import sample.BE.Ticket;
 import sample.BLL.EventManager;
 import sample.BLL.TicketManager;
-
-import javax.mail.MessagingException;
-import java.awt.print.PrinterException;
-import java.io.IOException;
 
 public class EventModel {
     private TicketManager ticketManager;
@@ -49,11 +43,15 @@ public class EventModel {
         ticketManager.sendTicket(event, amount, ticket);
     }
 
-    public int getSoldTickets(EventCoordinator eventCoordinator) throws Exception {
-        return ticketManager.getSoldTickets(eventCoordinator);
+    public int getSoldTicketsByEventCoordinator(EventCoordinator eventCoordinator) throws Exception {
+        return ticketManager.getSoldTicketsByEventCoordinator(eventCoordinator);
     }
 
     public int getManagedEvents(EventCoordinator eventCoordinator) throws Exception {
         return eventManager.getManagedEvents(eventCoordinator);
+    }
+
+    public int getAllSoldTickets() throws Exception {
+        return ticketManager.getAllSoldTickets();
     }
 }

@@ -1,7 +1,6 @@
 package sample.DAL;
 
 
-import com.microsoft.sqlserver.jdbc.SQLServerException;
 import sample.BE.Event;
 import sample.BE.EventCoordinator;
 import sample.BE.Ticket;
@@ -50,7 +49,24 @@ public class TicketDAO {
         }
     }
 
-    public int getSoldTickets(EventCoordinator eventCoordinator) throws Exception {
+    public int getAllSoldTickets() throws Exception {
+        try (Connection conn = databaseConnector.getConnection();
+             Statement stmt = conn.createStatement())
+        {
+            String sql = "Select COUNT(eventCoordinator) AS soldTickets from dbo.Ticket;";
+            ResultSet rs = stmt.executeQuery(sql);
+
+            if (rs.next()) {
+                return rs.getInt("soldTickets");
+            }
+            return 0;
+        }
+        catch(SQLException ex) {
+            throw new Exception("Couldn't get all tickets from the database", ex);
+        }
+    }
+
+    public int getSoldTicketsByEventCoordinator(EventCoordinator eventCoordinator) throws Exception {
         String sql = "Select COUNT(eventCoordinator) AS soldTickets from dbo.Ticket where eventCoordinator = (?);";
         try (Connection conn = databaseConnector.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql))
@@ -58,7 +74,7 @@ public class TicketDAO {
             stmt.setInt(1, eventCoordinator.getId());
             ResultSet rs = stmt.executeQuery();
 
-            while (rs.next()) {
+            if (rs.next()) {
                return rs.getInt("soldTickets");
             }
             return 0;
