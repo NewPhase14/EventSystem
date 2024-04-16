@@ -39,7 +39,7 @@
          <children>
             <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="155.0">
                <children>
-                  <Label text="Number of tickets sold" />
+                  <Label fx:id="lblTickets" text="Number of tickets sold" />
                   <TextField fx:id="txtTicketsSold" editable="false" prefHeight="26.0" prefWidth="130.0" />
                </children>
             </VBox>

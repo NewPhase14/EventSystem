@@ -33,6 +33,17 @@ public class LoggedInModel {
         return loggedIn;
     }
 
+    public void setUser(Admin admin, EventCoordinator eventCoordinator){
+        if (admin == null) {
+            this.eventCoordinator = eventCoordinator;
+            this.admin = null;
+        }
+        if (eventCoordinator == null) {
+            this.admin = admin;
+            this.eventCoordinator = null;
+        }
+    }
+
     public void setAdmin(Admin admin){
         this.admin = admin;
     }

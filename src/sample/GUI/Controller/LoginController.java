@@ -63,7 +63,7 @@ public class LoginController implements Initializable {
         for (Admin admin : adminModel.getObservableEventCoordinators()) {
             if (txfUsername.getText().equals(admin.getUsername())) {
                 if (BCrypt.checkpw(pwfPassword.getText(),admin.getPassword())) {
-                    loggedInModel.setAdmin(admin);
+                    loggedInModel.setUser(admin, null);
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/menu/AdminWindow.fxml"));
                     Parent root = loader.load();
                     Scene scene = new Scene(root);
@@ -84,7 +84,7 @@ public class LoginController implements Initializable {
         for (EventCoordinator eventCoordinator : eventCoordinatorModel.getObservableEventCoordinators()) {
             if (txfUsername.getText().equals(eventCoordinator.getUsername())) {
                 if (BCrypt.checkpw(pwfPassword.getText(), eventCoordinator.getPassword())) {
-                    loggedInModel.setEventCoordinator(eventCoordinator);
+                    loggedInModel.setUser(null, eventCoordinator);
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/menu/EventCoordinatorWindow.fxml"));
                     Parent root = loader.load();
                     Scene scene = new Scene(root);
@@ -119,7 +119,7 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        txfUsername.setText("KKensen");
+        txfUsername.setText("JBaden");
         pwfPassword.setText("qwer1234");
         draggableWindow();
     }
