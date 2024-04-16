@@ -52,4 +52,8 @@ public class EventModel {
     public int getSoldTickets(EventCoordinator eventCoordinator) throws Exception {
         return ticketManager.getSoldTickets(eventCoordinator);
     }
+
+    public int getManagedEvents(EventCoordinator eventCoordinator) throws Exception {
+        return eventManager.getManagedEvents(eventCoordinator);
+    }
 }

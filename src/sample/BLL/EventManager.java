@@ -1,6 +1,7 @@
 package sample.BLL;
 
 import sample.BE.Event;
+import sample.BE.EventCoordinator;
 import sample.DAL.EventDAO;
 
 import java.io.IOException;
@@ -30,5 +31,9 @@ public class EventManager {
     }
     public void deleteEvent(Event selectedEvent) throws Exception {
         eventDAO.deleteEvent(selectedEvent);
+    }
+
+    public int getManagedEvents(EventCoordinator eventCoordinator) throws Exception {
+        return eventDAO.getManagedEvents(eventCoordinator);
     }
 }

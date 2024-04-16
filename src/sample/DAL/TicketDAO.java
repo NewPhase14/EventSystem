@@ -51,7 +51,6 @@ public class TicketDAO {
     }
 
     public int getSoldTickets(EventCoordinator eventCoordinator) throws Exception {
-        int soldTickets = 0;
         String sql = "Select COUNT(eventCoordinator) AS soldTickets from dbo.Ticket where eventCoordinator = (?);";
         try (Connection conn = databaseConnector.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql))

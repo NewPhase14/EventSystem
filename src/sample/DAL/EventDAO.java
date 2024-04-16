@@ -1,6 +1,7 @@
 package sample.DAL;
 
 import sample.BE.Event;
+import sample.BE.EventCoordinator;
 
 import javax.xml.transform.Result;
 import java.io.IOException;
@@ -121,6 +122,24 @@ public class EventDAO {
         }
         catch (SQLException ex) {
             throw new Exception("Couldn't delete event", ex);
+        }
+    }
+
+    public int getManagedEvents(EventCoordinator eventCoordinator) throws Exception {
+        String sql = "Select COUNT(coordinator) as createdEvents from dbo.Event where coordinator = (?);";
+        try (Connection conn = databaseConnector.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql))
+        {
+            stmt.setInt(1, eventCoordinator.getId());
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                return rs.getInt("createdEvents");
+            }
+            return 0;
+        }
+        catch(SQLException ex) {
+            throw new Exception("Couldn't get created events from the database", ex);
         }
     }
 

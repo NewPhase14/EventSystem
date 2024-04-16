@@ -109,10 +109,8 @@ public class EventManagementController implements Initializable {
         ticketListener();
     }
 
-
-
     public void createEvent() throws Exception {
-        if (!txtEventName.getText().isEmpty() && !txtAvailableTickets.getText().isEmpty() && !txtEventLocation.getText().isEmpty() && dpEventStart != null && dpEventEnd != null && !txtEventStartTime.getText().isEmpty() && !txtEventEndTime.getText().isEmpty()){
+        if (!txtEventName.getText().isEmpty() && !txtTickets.getText().isEmpty() && !txtEventLocation.getText().isEmpty() && dpEventStart != null && dpEventEnd != null && !txtEventStartTime.getText().isEmpty() && !txtEventEndTime.getText().isEmpty()){
             String name = txtEventName.getText();
             int tickets = Integer.parseInt(txtTickets.getText());
             String location = txtEventLocation.getText();
@@ -166,6 +164,7 @@ public class EventManagementController implements Initializable {
 
     public void clearFields() {
         txtAvailableTickets.clear();
+        txtTickets.clear();
         txtEventLocation.clear();
         txtEventName.clear();
         txtEventLocation.clear();
