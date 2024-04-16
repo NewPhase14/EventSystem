@@ -43,16 +43,11 @@ public class LoggedInModel {
             this.eventCoordinator = null;
         }
     }
-
-    public void setAdmin(Admin admin){
-        this.admin = admin;
-    }
+    
     public Admin getAdmin(){
         return admin;
     }
-    public void setEventCoordinator(EventCoordinator eventCoordinator){
-        this.eventCoordinator = eventCoordinator;
-    }
+
     public EventCoordinator getEventCoordinator(){
         return eventCoordinator;
     }
