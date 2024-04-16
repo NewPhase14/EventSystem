@@ -44,8 +44,8 @@
                            <children>
                               <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="215.0">
                                  <children>
-                                    <Label text="Events created" />
-                                    <TextField fx:id="txtEventsCreated" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" />
+                                    <Label text="Events Managed" />
+                                    <TextField fx:id="txtEventsManaged" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" />
                                  </children>
                               </VBox>
                               <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="209.0">
@@ -60,21 +60,13 @@
                            </VBox.margin>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
-                           <children>
-                              <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="215.0">
-                                 <children>
-                                    <Label text="Events Managed:" />
-                                    <TextField fx:id="txtEventsManaged" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" />
-                                 </children>
-                              </VBox>
-                           </children>
                            <padding>
                               <Insets left="10.0" />
                            </padding>
                         </HBox>
-                        <BarChart prefHeight="283.0" prefWidth="421.0">
+                        <BarChart fx:id="barTicketsSold" prefHeight="283.0" prefWidth="421.0">
                           <xAxis>
-                            <CategoryAxis side="BOTTOM" />
+                            <CategoryAxis animated="false" side="BOTTOM" />
                           </xAxis>
                           <yAxis>
                             <NumberAxis side="LEFT" />
