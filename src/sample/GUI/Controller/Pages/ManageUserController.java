@@ -4,10 +4,7 @@ package sample.GUI.Controller.Pages;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import org.mindrot.jbcrypt.BCrypt;
@@ -34,6 +31,12 @@ public class ManageUserController implements Initializable {
     private PasswordField pwfPassword;
 
     private EventCoordinatorModel eventCoordinatorModel;
+    @FXML
+    private Button updateButton;
+    @FXML
+    private Button deleteButton;
+    @FXML
+    private Button createButton;
 
     public ManageUserController() throws Exception {
         eventCoordinatorModel = new EventCoordinatorModel();
@@ -83,31 +86,58 @@ public class ManageUserController implements Initializable {
         pwfPassword.clear();
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    private void selectedOptions() {
+        createButton.setVisible(false);
+        updateButton.setVisible(true);
+        deleteButton.setVisible(true);
+    }
+
+    private void createOptions() {
+        createButton.setVisible(true);
+        deleteButton.setVisible(false);
+        updateButton.setVisible(false);
+    }
+
+    private void setupTableView() {
         colFirstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         colLastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         tblUsers.setItems(eventCoordinatorModel.getObservableEventCoordinators());
+    }
+
+    private void selectedUserListener() {
         tblUsers.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
+                selectedOptions();
                 txtfFirstName.setText(newValue.getFirstName());
                 txtfLastName.setText(newValue.getLastName());
                 txtfUsername.setText(newValue.getUsername());
                 txtfEmail.setText(newValue.getEmail());
             } else {
                 clearFields();
+                createOptions();
             }
         });
+    }
 
+    private void searchBarListener() {
         searchEventcoordinator.textProperty().addListener((observable, oldValue, newValue) -> {
-           if (newValue != null) {
-               try {
-                   eventCoordinatorModel.searchEventCoordinator(newValue);
-               } catch (Exception e) {
-                   throw new RuntimeException(e);
-               }
-           }
+            if (newValue != null) {
+                try {
+                    eventCoordinatorModel.searchEventCoordinator(newValue);
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+            }
         });
     }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        setupTableView();
+        createOptions();
+        selectedUserListener();
+        searchBarListener();
+    }
+
 }

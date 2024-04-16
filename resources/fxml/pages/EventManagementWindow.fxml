@@ -66,7 +66,7 @@
                            </HBox.margin>
                            <children>
                               <Label text="Avaialable tickets" />
-                              <TextField fx:id="txtAvailableTickets" />
+                              <TextField fx:id="txtAvailableTickets" promptText="Not useable when creating event" />
                            </children>
                         </VBox>
                      </children>
@@ -130,9 +130,9 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
                      <children>
-                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#createEvent" prefHeight="25.0" prefWidth="60.0" text="Create" />
-                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#updateEvent" prefHeight="25.0" text="Update" />
-                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#deleteEvent" prefHeight="25.0" prefWidth="60.0" text="Delete" />
+                        <Button fx:id="createButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#createEvent" prefHeight="25.0" prefWidth="60.0" text="Create" />
+                        <Button fx:id="updateButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#updateEvent" prefHeight="25.0" text="Update" />
+                        <Button fx:id="deleteButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#deleteEvent" prefHeight="25.0" prefWidth="60.0" text="Delete" />
                         <Label fx:id="lblAlert" textFill="#d31c1c">
                            <font>
                               <Font size="18.0" />

@@ -59,7 +59,7 @@ public class TicketManager {
 
         PDDocumentInformation pdd = document.getDocumentInformation();
         pdd.setTitle("Ticket");
-        Barcode barcode = BarcodeFactory.createCode128(event.getName() + event.getAvailableTickets());
+        Barcode barcode = BarcodeFactory.createCode128(event.getName().toUpperCase() + event.getAvailableTickets());
         barcode.setBarHeight(60);
         barcode.setBarHeight(2);
 
@@ -111,7 +111,7 @@ public class TicketManager {
 
         contentStream.close();
 
-        document.save(new File("resources/data/tickets/" +event.getName() + event.getAvailableTickets() + ".pdf"));
+        document.save(new File("resources/data/tickets/" +event.getName().toUpperCase() + event.getAvailableTickets() + ".pdf"));
         ticket.setBarCode(barcode.getData());
 
         //find a way to not go through the event data access layer like this

@@ -39,6 +39,12 @@ public class EventManagementController implements Initializable {
     private VBox window;
 
     private EventModel eventModel;
+    @FXML
+    private Button createButton;
+    @FXML
+    private Button updateButton;
+    @FXML
+    private Button deleteButton;
 
     /*
     Fix Exception handling
@@ -48,28 +54,21 @@ public class EventManagementController implements Initializable {
         this.eventModel = new EventModel();
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    private void selectedOptions() {
+        createButton.setVisible(false);
+        updateButton.setVisible(true);
+        deleteButton.setVisible(true);
+        txtAvailableTickets.setEditable(true);
+    }
 
-        lstEvents.setItems(eventModel.getObservableEvents());
+    private void createOptions() {
+        txtAvailableTickets.setEditable(false);
+        createButton.setVisible(true);
+        deleteButton.setVisible(false);
+        updateButton.setVisible(false);
+    }
 
-        lstEvents.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue != null){
-                txtEventName.setText(newValue.getName());
-                txtTickets.setText(String.valueOf(newValue.getTickets()));
-                txtAvailableTickets.setText(String.valueOf(newValue.getAvailableTickets()));
-                txtEventLocation.setText(newValue.getLocation());
-                dpEventStart.setValue(newValue.getStartDate());
-                dpEventEnd.setValue(newValue.getEndDate());
-                txtEventStartTime.setText(newValue.getStartTime());
-                txtEventEndTime.setText(newValue.getEndTime());
-                txtaEventDescription.setText(newValue.getDescription());
-            } else {
-                clearFields();
-            }
-        });
-
-
+    private void ticketListener() {
         //Only numbers can be written
         txtAvailableTickets.textProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -81,12 +80,41 @@ public class EventManagementController implements Initializable {
         });
     }
 
+    private void selectedEventListener() {
+        lstEvents.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null){
+                selectedOptions();
+                lblAlert.setText("");
+                txtEventName.setText(newValue.getName());
+                txtTickets.setText(String.valueOf(newValue.getTickets()));
+                txtAvailableTickets.setText(String.valueOf(newValue.getAvailableTickets()));
+                txtEventLocation.setText(newValue.getLocation());
+                dpEventStart.setValue(newValue.getStartDate());
+                dpEventEnd.setValue(newValue.getEndDate());
+                txtEventStartTime.setText(newValue.getStartTime());
+                txtEventEndTime.setText(newValue.getEndTime());
+                txtaEventDescription.setText(newValue.getDescription());
+            } else {
+                clearFields();
+                createOptions();
+            }
+        });
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        lstEvents.setItems(eventModel.getObservableEvents());
+        createOptions();
+        selectedEventListener();
+        ticketListener();
+    }
+
 
 
     public void createEvent() throws Exception {
         if (!txtEventName.getText().isEmpty() && !txtAvailableTickets.getText().isEmpty() && !txtEventLocation.getText().isEmpty() && dpEventStart != null && dpEventEnd != null && !txtEventStartTime.getText().isEmpty() && !txtEventEndTime.getText().isEmpty()){
             String name = txtEventName.getText();
-            int tickets = Integer.parseInt(txtAvailableTickets.getText());
+            int tickets = Integer.parseInt(txtTickets.getText());
             String location = txtEventLocation.getText();
             LocalDate startDate = dpEventStart.getValue();
             LocalDate endDate = dpEventEnd.getValue();
