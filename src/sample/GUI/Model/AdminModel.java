@@ -20,4 +20,7 @@ public class AdminModel {
         return observableAdmins;
     }
 
+    public void updateAdmin(Admin admin) throws Exception {
+        adminManager.updateAdmin(admin);
+    }
 }

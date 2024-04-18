@@ -18,4 +18,8 @@ public class AdminManager {
         allAdmins = adminDAO.getAllAdmins();
         return allAdmins;
     }
+
+    public void updateAdmin(Admin admin) throws Exception {
+        adminDAO.updateAdmin(admin);
+    }
 }

@@ -14,7 +14,7 @@
     <orderEntry type="library" exported="" name="de.svenkubiak.jBCrypt" level="project" />
     <orderEntry type="library" exported="" name="sun.mail.javax" level="project" />
     <orderEntry type="library" name="net.sourceforge.barbecue" level="project" />
-    <orderEntry type="library" name="apache.pdfbox" level="project" />
     <orderEntry type="library" name="junit.jupiter" level="project" />
+    <orderEntry type="library" name="apache.pdfbox" level="project" />
   </component>
 </module>
