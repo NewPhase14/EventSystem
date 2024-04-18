@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import javafx.scene.layout.HBox;
 import org.mindrot.jbcrypt.BCrypt;
 import sample.BE.EventCoordinator;
 import sample.GUI.Model.EventCoordinatorModel;
@@ -37,6 +38,8 @@ public class ManageUserController implements Initializable {
     private Button deleteButton;
     @FXML
     private Button createButton;
+    @FXML
+    private Label lblAlert;
 
     public ManageUserController() throws Exception {
         eventCoordinatorModel = new EventCoordinatorModel();
@@ -66,16 +69,21 @@ public class ManageUserController implements Initializable {
 
     @FXML
     private void createUser() throws Exception {
-        String firstName = txtfFirstName.getText();
-        String lastName = txtfLastName.getText();
-        String username = txtfUsername.getText();
-        String password = pwfPassword.getText();
-        String salt = BCrypt.gensalt(14);
-        String pw = BCrypt.hashpw(password,salt);
-        String email = txtfEmail.getText();
-        clearFields();
-        EventCoordinator eventCoordinator = new EventCoordinator(firstName,lastName,username,pw,email);
-        eventCoordinatorModel.createEventCoordinator(eventCoordinator);
+        if (!txtfFirstName.getText().isEmpty() && !txtfLastName.getText().isEmpty() && !txtfUsername.getText().isEmpty() && !txtfEmail.getText().isEmpty() && !pwfPassword.getText().isEmpty()) {
+            String firstName = txtfFirstName.getText();
+            String lastName = txtfLastName.getText();
+            String username = txtfUsername.getText();
+            String password = pwfPassword.getText();
+            String salt = BCrypt.gensalt(14);
+            String pw = BCrypt.hashpw(password, salt);
+            String email = txtfEmail.getText();
+            clearFields();
+            EventCoordinator eventCoordinator = new EventCoordinator(firstName, lastName, username, pw, email);
+            eventCoordinatorModel.createEventCoordinator(eventCoordinator);
+        } else {
+            lblAlert.setText("Fill out all fields");
+        }
+        lblAlert.setText("");
     }
 
     public void clearFields() {
