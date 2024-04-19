@@ -114,7 +114,6 @@ public class AdminController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
             draggableWindow();
-        System.out.println(admin);
         try {
             openEventsWindow();
         } catch (IOException e) {

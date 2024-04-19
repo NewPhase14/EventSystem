@@ -106,7 +106,6 @@ public class EventCoordinatorController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         draggableWindow();
-        System.out.println(eventCoordinator);
         try {
             openEventsWindow();
         } catch (IOException e) {
